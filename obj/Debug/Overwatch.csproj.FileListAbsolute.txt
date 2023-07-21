@@ -1,0 +1,8 @@
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\Overwatch.exe.config
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\Overwatch.exe
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\Overwatch.pdb
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\obj\Debug\Overwatch.csproj.AssemblyReference.cache
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\obj\Debug\Overwatch.csproj.SuggestedBindingRedirects.cache
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\obj\Debug\Overwatch.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\obj\Debug\Overwatch.exe
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\obj\Debug\Overwatch.pdb

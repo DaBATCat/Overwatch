@@ -13,13 +13,13 @@ namespace Overwatch
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            new Watcher(@"C:\Users\Daniel\").Watch();
+            new Watcher(@"C:\").Watch();
             //var thread = new Thread(Execute);
             //thread.Start();
             //Console.WriteLine("Main Thread {0} exiting...", 
             //    Thread.CurrentThread.ManagedThreadId);
             //DoSomethingWeee();
-            Console.ReadKey();
+            Console.ReadLine();
         }
 
         public void NormalExecution()
@@ -53,7 +53,6 @@ namespace Overwatch
 
         static void Run1()
         {
-            Console console = new Console();
             new Watcher(@"E:\").Watch();
         }
     }

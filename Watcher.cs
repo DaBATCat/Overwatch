@@ -21,6 +21,7 @@ namespace Overwatch
         static Thread thread;
         static long eventCounter;
 
+        // DLLImport for getting the event if the application is closed
         [DllImport("Kernel32")]
         private static extern bool SetConsoleCtrlHandler(EventHandler handler, bool add);
 
@@ -38,7 +39,9 @@ namespace Overwatch
 
         private static bool Handler(CtrlType sig)
         {
+            // Calculating the duration of the length of the programs use
             TimeSpan duration = DateTime.Now - startTime;
+
             // Here for opereations before closing
             StreamWriter sw = new StreamWriter("Logs.txt", true);
 
@@ -92,7 +95,7 @@ namespace Overwatch
             // Saves the timestamp when the program starts
             startTime = DateTime.Now;
 
-            
+
         }
         // Wenn eine Datei oder etwas in einem Pfad umbenannt wird
         private static void OnRenamed(object sender, RenamedEventArgs e) 
@@ -145,6 +148,8 @@ namespace Overwatch
             // sw.WriteLine($"Der Shid wurde am {DateTime.Now} geschlossen. AuuA");
             // sw.Close();
         }
+
+
 
     }
 }

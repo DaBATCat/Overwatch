@@ -12,14 +12,15 @@ namespace Overwatch
     {
         static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.White;
-            new Watcher(@"C:\").Watch();
+            // Console.ForegroundColor = ConsoleColor.White;
+            // new Watcher(@"C:\").Watch();
             //var thread = new Thread(Execute);
             //thread.Start();
             //Console.WriteLine("Main Thread {0} exiting...", 
             //    Thread.CurrentThread.ManagedThreadId);
             //DoSomethingWeee();
-            Console.ReadLine();
+            AFKTracker.Track();
+            Console.ReadLine(); 
         }
 
         public void NormalExecution()

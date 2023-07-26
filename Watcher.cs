@@ -17,8 +17,9 @@ namespace Overwatch
             get { return _logPath; }
             set { _logPath = value; }
         }
+
         FileSystemWatcher watcher;
-        static Thread thread;
+        // static Thread afkThread;
         static long eventCounter;
 
         // DLLImport for getting the event if the application is closed
@@ -45,12 +46,35 @@ namespace Overwatch
             // Here for opereations before closing
             StreamWriter sw = new StreamWriter("Logs.txt", true);
 
+            // Adds the AFK durations to a string
+            string afkDurations = "";
+            for(int i = 0; i < AFKTracker.afkStartTimes.Count; i++)
+            {
+                afkDurations += $"AFK #{i} started at {AFKTracker.afkStartTimes[i]}\n" +
+                    $"Duration: {AFKTracker.durations[i]}\n";
+            }
+
+            // Calculating all the time the user was AFK
+            TimeSpan totalAfkTimeSpan = new TimeSpan();
+            for(int i = 0; i < AFKTracker.durations.Count; i++)
+            {
+                totalAfkTimeSpan += AFKTracker.durations[i];
+            }
+
+            // The whole time the user was active on the PC
+            TimeSpan totalActiveTimeSpan = duration - totalAfkTimeSpan;
+
             // Logging the process to a Textfile
             string msg = $"\n----------\nProcess from\t{startTime}\n" +
                 $"Stopped at:\t{DateTime.Now}\n" +
                 $"Duration: {((int)duration.TotalHours)}h {((int)duration.TotalMinutes)}m " +
                 $"{((int)duration.TotalSeconds)}s\n" +
                 $"Total events: {eventCounter}\n" +
+                $"{afkDurations}" +
+                $"Total time AFK: {(int)totalAfkTimeSpan.TotalHours}h {(int)totalAfkTimeSpan.TotalMinutes}m " +
+                $"{(int)totalAfkTimeSpan.TotalSeconds}s\n" +
+                $"Total active time: {(int)totalActiveTimeSpan.TotalHours}h {(int)totalActiveTimeSpan.TotalMinutes}m " +
+                $"{(int)totalActiveTimeSpan.TotalSeconds}s\n" +
                 $"Tracked directory: {_logPath}";
             sw.WriteLine(msg);
 
@@ -76,6 +100,12 @@ namespace Overwatch
 
         public void Watch()
         {
+            Thread afkThread = new Thread(AFKTracker.Track)
+            {
+                Name = "afkThread"
+            };
+
+            afkThread.Start();
             Console.Title = $"Logging in {_logPath}...";
 
             // Adds the events to the FileSystemWatcher
@@ -97,6 +127,7 @@ namespace Overwatch
 
 
         }
+
         // Wenn eine Datei oder etwas in einem Pfad umbenannt wird
         private static void OnRenamed(object sender, RenamedEventArgs e) 
         {

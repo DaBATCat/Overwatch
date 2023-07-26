@@ -89,3 +89,148 @@ Stopped at:	25.07.2023 15:09:00
 Duration: 0h 0m 29s
 Total events: 4234
 Tracked directory: C:\
+
+----------
+Process from	26.07.2023 14:49:12
+Stopped at:	26.07.2023 14:50:35
+Duration: 0h 1m 83s
+Total events: 382
+Tracked directory: C:\
+
+----------
+Process from	26.07.2023 15:41:10
+Stopped at:	26.07.2023 15:41:32
+Duration: 0h 0m 22s
+Total events: 487
+Tracked directory: C:\
+
+----------
+Process from	26.07.2023 15:56:59
+Stopped at:	26.07.2023 15:57:41
+Duration: 0h 0m 41s
+Total events: 543
+AFK #0 started at 26.07.2023 15:57:02
+Duration: 00:00:06.2834552
+AFK #1 started at 26.07.2023 15:57:14
+Duration: 00:00:24.2495541
+Tracked directory: C:\
+
+----------
+Process from	26.07.2023 16:02:00
+Stopped at:	26.07.2023 16:02:40
+Duration: 0h 0m 39s
+Total events: 527
+AFK #0 started at 26.07.2023 16:02:04
+Duration: 00:00:10.3807904
+AFK #1 started at 26.07.2023 16:02:21
+Duration: 00:00:16.3085322
+Total time AFK: 0,00741370072222222h 26689,3226m 26,6893226sTracked directory: C:\
+
+----------
+Process from	26.07.2023 16:03:29
+Stopped at:	26.07.2023 16:04:23
+Duration: 0h 0m 53s
+Total events: 1016
+AFK #0 started at 26.07.2023 16:03:36
+Duration: 00:00:15.2210430
+AFK #1 started at 26.07.2023 16:03:57
+Duration: 00:00:01.3462028
+AFK #2 started at 26.07.2023 16:04:04
+Duration: 00:00:11.4795782
+Total time AFK: 0h 0m 28s
+Tracked directory: C:\
+
+----------
+Process from	26.07.2023 16:10:45
+Stopped at:	26.07.2023 16:11:39
+Duration: 0h 0m 54s
+Total events: 979
+AFK #0 started at 26.07.2023 16:10:48
+Duration: 00:00:06.2300109
+AFK #1 started at 26.07.2023 16:11:01
+Duration: 00:00:16.8070108
+AFK #2 started at 26.07.2023 16:11:30
+Duration: 00:00:07.0580012
+Total time AFK: 0h 0m 30s
+Tracked directory: C:\
+
+----------
+Process from	26.07.2023 16:15:20
+Stopped at:	26.07.2023 16:15:37
+Duration: 0h 0m 17s
+Total events: 371
+AFK #0 started at 26.07.2023 16:15:31
+Duration: 00:00:01.9930016
+Total time AFK: 0h 0m 1s
+Total active time: 0h 0m 15s
+Tracked directory: C:\
+
+----------
+Process from	26.07.2023 16:19:45
+Stopped at:	26.07.2023 16:20:06
+Duration: 0h 0m 20s
+Total events: 560
+AFK #0 started at 26.07.2023 14:39:56
+Duration: 01:40:03.9230033
+Total time AFK: 1h 100m 6003s
+Total active time: -1h -99m -5983s
+Tracked directory: C:\
+
+----------
+Process from	26.07.2023 16:20:17
+Stopped at:	26.07.2023 16:20:32
+Duration: 0h 0m 15s
+Total events: 398
+AFK #0 started at 26.07.2023 16:20:22
+Duration: 00:00:07.6269996
+Total time AFK: 0h 0m 7s
+Total active time: 0h 0m 7s
+Tracked directory: C:\
+
+----------
+Process from	26.07.2023 16:21:09
+Stopped at:	26.07.2023 16:22:11
+Duration: 0h 1m 61s
+Total events: 529
+AFK #0 started at 26.07.2023 16:21:14
+Duration: 00:00:08.0339966
+AFK #1 started at 26.07.2023 16:21:48
+Duration: 00:00:17.0440510
+Total time AFK: 0h 0m 25s
+Total active time: 0h 0m 36s
+Tracked directory: C:\
+
+----------
+Process from	26.07.2023 16:23:04
+Stopped at:	26.07.2023 16:23:46
+Duration: 0h 0m 41s
+Total events: 646
+AFK #0 started at 26.07.2023 16:23:06
+Duration: 00:00:09.4689976
+AFK #1 started at 26.07.2023 16:23:33
+Duration: 00:00:09.5720012
+Total time AFK: 0h 0m 19s
+Total active time: 0h 0m 22s
+Tracked directory: C:\
+
+----------
+Process from	26.07.2023 16:24:12
+Stopped at:	26.07.2023 16:25:23
+Duration: 0h 1m 71s
+Total events: 699
+AFK #0 started at 26.07.2023 16:24:11
+Duration: 00:01:11.4571808
+Total time AFK: 0h 1m 71s
+Total active time: 0h 0m 0s
+Tracked directory: C:\
+
+----------
+Process from	26.07.2023 16:25:43
+Stopped at:	26.07.2023 16:25:57
+Duration: 0h 0m 13s
+Total events: 394
+AFK #0 started at 26.07.2023 16:25:42
+Duration: 00:00:12.9090059
+Total time AFK: 0h 0m 12s
+Total active time: 0h 0m 1s
+Tracked directory: C:\

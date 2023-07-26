@@ -13,10 +13,10 @@ namespace Overwatch
         static readonly uint AFK_TIME_BEGINNING = 6000;
 
         // List for when the User started to go AFK
-        static List<DateTime> afkStartTimes = new List<DateTime>();
+        public static List<DateTime> afkStartTimes = new List<DateTime>();
 
         // List of the time spans how long the user was afk each time
-        static List<TimeSpan> durations = new List<TimeSpan>();
+        public static List<TimeSpan> durations = new List<TimeSpan>();
 
         [DllImport("user32.dll")]
         static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
@@ -31,9 +31,12 @@ namespace Overwatch
         // Main entry point for starting Tracking (best from extra thread because of endless loop until the program stops)
         public static void Track()
         {
+            bool consoleOutput = true;
+
             uint listIndex = 0;
             LASTINPUTINFO lastInputInfo = new LASTINPUTINFO();
             lastInputInfo.cbSize = (uint)Marshal.SizeOf(lastInputInfo);
+
             bool isAfk = false;
             while (true)
             {
@@ -44,20 +47,33 @@ namespace Overwatch
                 if (Environment.TickCount - lastInputTime > AFK_TIME_BEGINNING && !isAfk)
                 {
                     isAfk = true;
-                    afkStartTimes.Add(DateTime.Now);
-                    Console.WriteLine($"AFK detected at {afkStartTimes[(int)listIndex]} ID: {listIndex}");
+
+                    // Subtract the AFK time with the already passed time
+                    afkStartTimes.Add(DateTime.Now.AddMilliseconds(-AFK_TIME_BEGINNING));
+
+                    if (consoleOutput)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine($"AFK detected at {afkStartTimes[(int)listIndex]} ID: {listIndex}");
+                    }
                 }
+
                 // Tritt ein, wenn der User schon AFK ist aber in den letzten 100ms es eine Aktion gegeben hat, er also wieder aktiv ist
                 if (Environment.TickCount - lastInputTime < 100 && isAfk)
                 {
                     // Adds the AFK Duration to the list
-                    durations.Add((DateTime.Now - afkStartTimes[(int)listIndex]));
+                    durations.Add(DateTime.Now - afkStartTimes[(int)listIndex]);
 
                     // The user is now active
                     isAfk = false;
 
-                    Console.WriteLine($"AFK with ID {listIndex} stopped at {afkStartTimes[(int)listIndex]}" +
-                        $"\nDuration: {durations[(int)listIndex]}");
+                    if (consoleOutput)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine($"AFK with ID {listIndex} stopped at {DateTime.Now}" +
+                                                $"\nDuration: {durations[(int)listIndex]}");
+                    }
+
                     listIndex++;
                 }
 

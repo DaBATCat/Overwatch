@@ -234,3 +234,465 @@ Duration: 00:00:12.9090059
 Total time AFK: 0h 0m 12s
 Total active time: 0h 0m 1s
 Tracked directory: C:\
+
+----------
+Process from	26.07.2023 19:28:45
+Stopped at:	27.07.2023 00:22:06
+Duration: 4h 293m 17601s
+Total events: 145943
+AFK #0 started at 26.07.2023 19:29:09
+Duration: 00:00:30.6052107
+AFK #1 started at 26.07.2023 19:31:02
+Duration: 00:00:06.0340038
+AFK #2 started at 26.07.2023 19:31:19
+Duration: 00:00:06.3579987
+AFK #3 started at 26.07.2023 19:31:26
+Duration: 00:00:07.4840001
+AFK #4 started at 26.07.2023 19:31:34
+Duration: 00:00:11.2619985
+AFK #5 started at 26.07.2023 19:32:43
+Duration: 00:00:24.0090001
+AFK #6 started at 26.07.2023 19:33:11
+Duration: 00:00:21.6522526
+AFK #7 started at 26.07.2023 19:34:29
+Duration: 00:01:19.3449888
+AFK #8 started at 26.07.2023 19:35:54
+Duration: 00:00:06.0669947
+AFK #9 started at 26.07.2023 19:39:49
+Duration: 00:00:14.3699981
+AFK #10 started at 26.07.2023 19:42:11
+Duration: 00:00:09.7230005
+AFK #11 started at 26.07.2023 19:43:01
+Duration: 00:00:10.5989938
+AFK #12 started at 26.07.2023 19:44:07
+Duration: 00:00:20.4650029
+AFK #13 started at 26.07.2023 19:44:28
+Duration: 00:00:06.6600004
+AFK #14 started at 26.07.2023 19:45:04
+Duration: 00:00:06.5180002
+AFK #15 started at 26.07.2023 19:45:23
+Duration: 00:00:06.8250031
+AFK #16 started at 26.07.2023 19:47:16
+Duration: 00:00:11.1870013
+AFK #17 started at 26.07.2023 19:47:31
+Duration: 00:00:06.6500057
+AFK #18 started at 26.07.2023 19:47:37
+Duration: 00:00:10.0300091
+AFK #19 started at 26.07.2023 19:47:54
+Duration: 00:00:28.1129956
+AFK #20 started at 26.07.2023 19:49:11
+Duration: 00:00:06.2549989
+AFK #21 started at 26.07.2023 19:49:55
+Duration: 00:00:10.8279972
+AFK #22 started at 26.07.2023 19:52:50
+Duration: 00:00:08.6638996
+AFK #23 started at 26.07.2023 19:53:15
+Duration: 00:00:09.0399994
+AFK #24 started at 26.07.2023 19:53:37
+Duration: 00:00:14.6529949
+AFK #25 started at 26.07.2023 19:54:06
+Duration: 00:00:07.7033574
+AFK #26 started at 26.07.2023 19:54:17
+Duration: 00:00:08.5899985
+AFK #27 started at 26.07.2023 19:54:48
+Duration: 00:00:14.8680002
+AFK #28 started at 26.07.2023 19:55:11
+Duration: 00:00:11.2959962
+AFK #29 started at 26.07.2023 19:55:51
+Duration: 00:00:07.1620002
+AFK #30 started at 26.07.2023 19:56:32
+Duration: 00:00:11.3904129
+AFK #31 started at 26.07.2023 20:07:57
+Duration: 00:00:12.8309953
+AFK #32 started at 26.07.2023 20:08:29
+Duration: 00:00:24.9760030
+AFK #33 started at 26.07.2023 20:09:24
+Duration: 00:00:07.6389993
+AFK #34 started at 26.07.2023 20:09:33
+Duration: 00:00:07.9230064
+AFK #35 started at 26.07.2023 20:10:20
+Duration: 00:00:11.5300106
+AFK #36 started at 26.07.2023 20:11:03
+Duration: 00:00:07.4430012
+AFK #37 started at 26.07.2023 20:11:56
+Duration: 00:00:06.3179994
+AFK #38 started at 26.07.2023 20:12:36
+Duration: 00:00:15.6401825
+AFK #39 started at 26.07.2023 20:13:03
+Duration: 00:00:08.2665425
+AFK #40 started at 26.07.2023 20:13:20
+Duration: 00:00:10.4809665
+AFK #41 started at 26.07.2023 20:13:35
+Duration: 00:00:06.7160030
+AFK #42 started at 26.07.2023 20:16:26
+Duration: 00:00:31.9669208
+AFK #43 started at 26.07.2023 20:17:58
+Duration: 00:00:07.9280015
+AFK #44 started at 26.07.2023 20:18:26
+Duration: 00:00:55.0423881
+AFK #45 started at 26.07.2023 20:19:22
+Duration: 00:00:24.6179495
+AFK #46 started at 26.07.2023 20:20:43
+Duration: 00:00:08.8811401
+AFK #47 started at 26.07.2023 20:25:20
+Duration: 00:00:07.9469996
+AFK #48 started at 26.07.2023 20:26:45
+Duration: 00:00:10.6900013
+AFK #49 started at 26.07.2023 20:28:56
+Duration: 00:00:27.0168088
+AFK #50 started at 26.07.2023 20:30:08
+Duration: 00:00:17.2570032
+AFK #51 started at 26.07.2023 20:31:35
+Duration: 00:00:08.7580002
+AFK #52 started at 26.07.2023 20:38:36
+Duration: 00:00:07.2280014
+AFK #53 started at 26.07.2023 20:38:52
+Duration: 00:00:06.9290022
+AFK #54 started at 26.07.2023 20:39:18
+Duration: 00:00:09.3190039
+AFK #55 started at 26.07.2023 20:42:35
+Duration: 00:00:12.4390179
+AFK #56 started at 26.07.2023 20:42:53
+Duration: 00:00:10.5990006
+AFK #57 started at 26.07.2023 20:43:04
+Duration: 00:00:09.3320073
+AFK #58 started at 26.07.2023 20:48:01
+Duration: 00:00:15.2730002
+AFK #59 started at 26.07.2023 20:48:17
+Duration: 00:00:09.4880064
+AFK #60 started at 26.07.2023 20:49:13
+Duration: 00:00:18.2410036
+AFK #61 started at 26.07.2023 20:49:37
+Duration: 00:00:12.2299980
+AFK #62 started at 26.07.2023 20:50:08
+Duration: 00:00:23.1339999
+AFK #63 started at 26.07.2023 20:52:16
+Duration: 00:00:07.8151850
+AFK #64 started at 26.07.2023 20:53:58
+Duration: 00:00:09.3929970
+AFK #65 started at 26.07.2023 20:55:53
+Duration: 00:00:06.2660009
+AFK #66 started at 26.07.2023 20:56:43
+Duration: 00:00:08.1389970
+AFK #67 started at 26.07.2023 20:59:18
+Duration: 00:00:11.4330042
+AFK #68 started at 26.07.2023 21:00:20
+Duration: 00:00:08.6449976
+AFK #69 started at 26.07.2023 21:01:28
+Duration: 00:00:15.6451494
+AFK #70 started at 26.07.2023 21:02:39
+Duration: 00:00:11.4430025
+AFK #71 started at 26.07.2023 21:03:18
+Duration: 00:00:10.8539993
+AFK #72 started at 26.07.2023 21:07:30
+Duration: 00:00:13.5626468
+AFK #73 started at 26.07.2023 21:09:28
+Duration: 00:00:07.0689962
+AFK #74 started at 26.07.2023 21:09:41
+Duration: 00:00:10.0390043
+AFK #75 started at 26.07.2023 21:09:52
+Duration: 00:00:09.1170000
+AFK #76 started at 26.07.2023 21:12:52
+Duration: 00:00:10.8650004
+AFK #77 started at 26.07.2023 21:14:58
+Duration: 00:00:06.4349998
+AFK #78 started at 26.07.2023 21:15:10
+Duration: 00:00:06.1849934
+AFK #79 started at 26.07.2023 21:16:38
+Duration: 00:00:06.3460002
+AFK #80 started at 26.07.2023 21:18:25
+Duration: 00:00:13.1081893
+AFK #81 started at 26.07.2023 21:19:15
+Duration: 00:00:11.1089992
+AFK #82 started at 26.07.2023 21:20:46
+Duration: 00:00:17.6130058
+AFK #83 started at 26.07.2023 21:21:34
+Duration: 00:00:07.1830021
+AFK #84 started at 26.07.2023 21:22:56
+Duration: 00:00:06.0959970
+AFK #85 started at 26.07.2023 21:23:36
+Duration: 00:00:08.9779991
+AFK #86 started at 26.07.2023 21:23:51
+Duration: 00:00:16.1780034
+AFK #87 started at 26.07.2023 21:24:22
+Duration: 00:00:09.0059993
+AFK #88 started at 26.07.2023 21:25:11
+Duration: 00:00:09.4770045
+AFK #89 started at 26.07.2023 21:26:12
+Duration: 00:00:27.2329988
+AFK #90 started at 26.07.2023 21:26:45
+Duration: 00:00:21.4574200
+AFK #91 started at 26.07.2023 21:28:01
+Duration: 00:00:07.4119992
+AFK #92 started at 26.07.2023 21:28:20
+Duration: 00:00:06.6139967
+AFK #93 started at 26.07.2023 21:29:36
+Duration: 00:00:21.6799949
+AFK #94 started at 26.07.2023 21:30:29
+Duration: 00:00:22.7839918
+AFK #95 started at 26.07.2023 21:32:02
+Duration: 00:00:10.0422941
+AFK #96 started at 26.07.2023 21:32:54
+Duration: 00:00:08.0349948
+AFK #97 started at 26.07.2023 21:33:28
+Duration: 00:00:08.4309967
+AFK #98 started at 26.07.2023 21:36:09
+Duration: 00:00:06.0010139
+AFK #99 started at 26.07.2023 21:36:39
+Duration: 00:00:06.4110041
+AFK #100 started at 26.07.2023 21:36:59
+Duration: 00:00:06.8359998
+AFK #101 started at 26.07.2023 21:40:36
+Duration: 00:00:06.2639979
+AFK #102 started at 26.07.2023 21:42:01
+Duration: 00:00:06.8479963
+AFK #103 started at 26.07.2023 21:44:47
+Duration: 00:00:07.4200017
+AFK #104 started at 26.07.2023 21:45:00
+Duration: 00:04:02.4984835
+AFK #105 started at 26.07.2023 21:49:05
+Duration: 00:00:06.9280068
+AFK #106 started at 26.07.2023 21:50:35
+Duration: 00:00:06.7629992
+AFK #107 started at 26.07.2023 21:51:04
+Duration: 00:00:06.2789977
+AFK #108 started at 26.07.2023 21:54:53
+Duration: 00:00:12.1099981
+AFK #109 started at 26.07.2023 21:55:38
+Duration: 00:00:28.7169973
+AFK #110 started at 26.07.2023 22:02:58
+Duration: 00:00:08.5789991
+AFK #111 started at 26.07.2023 22:09:11
+Duration: 00:00:09.4400094
+AFK #112 started at 26.07.2023 22:12:02
+Duration: 00:00:06.0650032
+AFK #113 started at 26.07.2023 22:13:03
+Duration: 00:00:06.8260041
+AFK #114 started at 26.07.2023 22:19:27
+Duration: 00:00:09.3770028
+AFK #115 started at 26.07.2023 22:31:52
+Duration: 00:00:08.4300006
+AFK #116 started at 26.07.2023 22:32:06
+Duration: 00:00:06.5490278
+AFK #117 started at 26.07.2023 22:34:22
+Duration: 00:00:10.9620215
+AFK #118 started at 26.07.2023 22:35:22
+Duration: 00:00:11.2650149
+AFK #119 started at 26.07.2023 22:43:13
+Duration: 00:00:08.3259988
+AFK #120 started at 26.07.2023 22:43:40
+Duration: 00:00:07.2529958
+AFK #121 started at 26.07.2023 22:48:14
+Duration: 00:00:06.2190037
+AFK #122 started at 26.07.2023 22:48:37
+Duration: 00:00:07.7490006
+AFK #123 started at 26.07.2023 22:49:57
+Duration: 00:00:06.6929995
+AFK #124 started at 26.07.2023 23:02:05
+Duration: 00:00:08.2849988
+AFK #125 started at 26.07.2023 23:02:38
+Duration: 00:00:06.3840008
+AFK #126 started at 26.07.2023 23:03:16
+Duration: 00:00:06.0319988
+AFK #127 started at 26.07.2023 23:05:02
+Duration: 00:00:10.9289976
+AFK #128 started at 26.07.2023 23:05:36
+Duration: 00:00:08.1419986
+AFK #129 started at 26.07.2023 23:05:48
+Duration: 00:00:06.5080002
+AFK #130 started at 26.07.2023 23:09:10
+Duration: 00:00:39.2640044
+AFK #131 started at 26.07.2023 23:11:02
+Duration: 00:00:17.9469947
+AFK #132 started at 26.07.2023 23:11:21
+Duration: 00:00:15.0150000
+AFK #133 started at 26.07.2023 23:11:43
+Duration: 00:00:06.2400032
+AFK #134 started at 26.07.2023 23:12:03
+Duration: 00:00:11.9869989
+AFK #135 started at 26.07.2023 23:14:29
+Duration: 00:00:10.4349955
+AFK #136 started at 26.07.2023 23:21:45
+Duration: 00:00:09.7480003
+AFK #137 started at 26.07.2023 23:22:57
+Duration: 00:00:06.1960044
+AFK #138 started at 26.07.2023 23:25:32
+Duration: 00:00:07.2759997
+AFK #139 started at 26.07.2023 23:26:45
+Duration: 00:00:07.6849994
+AFK #140 started at 26.07.2023 23:38:08
+Duration: 00:00:16.3034403
+AFK #141 started at 26.07.2023 23:39:20
+Duration: 00:00:06.0109986
+AFK #142 started at 26.07.2023 23:43:05
+Duration: 00:00:11.3950003
+AFK #143 started at 26.07.2023 23:45:42
+Duration: 00:00:23.7789171
+AFK #144 started at 26.07.2023 23:46:12
+Duration: 00:00:07.4010004
+AFK #145 started at 26.07.2023 23:46:38
+Duration: 00:00:08.2100019
+AFK #146 started at 26.07.2023 23:47:36
+Duration: 00:00:40.7866889
+AFK #147 started at 26.07.2023 23:50:57
+Duration: 00:00:08.2820006
+AFK #148 started at 26.07.2023 23:51:05
+Duration: 00:00:08.6980030
+AFK #149 started at 26.07.2023 23:51:14
+Duration: 00:00:09.0149969
+AFK #150 started at 26.07.2023 23:51:26
+Duration: 00:00:14.7990006
+AFK #151 started at 26.07.2023 23:52:17
+Duration: 00:00:40.5480041
+AFK #152 started at 26.07.2023 23:55:48
+Duration: 00:00:08.9130031
+AFK #153 started at 26.07.2023 23:56:05
+Duration: 00:00:34.4819948
+AFK #154 started at 26.07.2023 23:57:14
+Duration: 00:00:20.8569936
+AFK #155 started at 26.07.2023 23:57:35
+Duration: 00:01:03.1329922
+AFK #156 started at 26.07.2023 23:58:58
+Duration: 00:00:13.0529965
+AFK #157 started at 26.07.2023 23:59:33
+Duration: 00:00:31.8159994
+AFK #158 started at 27.07.2023 00:00:07
+Duration: 00:00:06.0870044
+AFK #159 started at 27.07.2023 00:00:13
+Duration: 00:00:31.1180005
+AFK #160 started at 27.07.2023 00:00:46
+Duration: 00:02:04.0279999
+AFK #161 started at 27.07.2023 00:02:52
+Duration: 00:00:38.6730004
+AFK #162 started at 27.07.2023 00:03:36
+Duration: 00:00:22.2650008
+AFK #163 started at 27.07.2023 00:04:12
+Duration: 00:00:18.6750230
+AFK #164 started at 27.07.2023 00:04:32
+Duration: 00:01:14.7453882
+AFK #165 started at 27.07.2023 00:05:47
+Duration: 00:00:15.9589952
+AFK #166 started at 27.07.2023 00:06:10
+Duration: 00:00:09.2380010
+AFK #167 started at 27.07.2023 00:06:42
+Duration: 00:00:11.4410435
+AFK #168 started at 27.07.2023 00:07:27
+Duration: 00:00:10.9059985
+AFK #169 started at 27.07.2023 00:09:44
+Duration: 00:00:09.3690063
+AFK #170 started at 27.07.2023 00:09:59
+Duration: 00:00:17.6325191
+AFK #171 started at 27.07.2023 00:10:22
+Duration: 00:00:27.2630027
+AFK #172 started at 27.07.2023 00:11:10
+Duration: 00:00:06.1380001
+AFK #173 started at 27.07.2023 00:11:23
+Duration: 00:00:41.3690037
+AFK #174 started at 27.07.2023 00:15:52
+Duration: 00:00:06.0379980
+AFK #175 started at 27.07.2023 00:20:54
+Duration: 00:00:06.4050502
+AFK #176 started at 27.07.2023 00:21:14
+Duration: 00:00:06.0600011
+AFK #177 started at 27.07.2023 00:21:37
+Duration: 00:00:06.9869963
+AFK #178 started at 27.07.2023 00:21:49
+Duration: 00:00:11.1800000
+Total time AFK: 0h 46m 2784s
+Total active time: 4h 246m 14817s
+Tracked directory: C:\
+
+----------
+Process from	30.07.2023 15:45:47
+Stopped at:	30.07.2023 15:47:04
+Duration: 0h 1m 76s
+Total events: 797
+AFK #0 started at 30.07.2023 15:45:46
+Duration: 00:01:14.0482946
+Total time AFK: 0h 1m 74s
+Total active time: 0h 0m 2s
+Tracked directory: C:\
+
+----------
+Process from	30.07.2023 15:48:37
+Stopped at:	30.07.2023 15:50:12
+Duration: 0h 1m 94s
+Total events: 1098
+AFK #0 started at 30.07.2023 15:48:41
+Duration: 00:01:23.6673769
+Total time AFK: 0h 1m 83s
+Total active time: 0h 0m 0s
+Tracked directory: C:\
+
+----------
+Process from	30.07.2023 15:55:38
+Stopped at:	30.07.2023 15:56:06
+Duration: 0h 0m 27s
+Total events: 441
+AFK #0 started at 30.07.2023 15:55:39
+Duration: 00:00:23.7450029
+Total time AFK: 0h 0m 23s
+Total active time: 0h 0m 0s
+Tracked directory: C:\
+
+----------
+Process from	30.07.2023 15:56:43
+Stopped at:	30.07.2023 15:58:06
+Duration: 0h 1m 82s
+Total events: 770
+AFK #0 started at 30.07.2023 15:56:47
+Duration: 00:01:13.8339100
+Total time AFK: 0h 1m 73s
+Total active time: 0h 0m 0s
+Tracked directory: C:\
+
+----------
+Process from	30.07.2023 16:13:55
+Stopped at:	30.07.2023 16:16:52
+Duration: 0h 2m 177s
+Total events: 3576
+Total time AFK: 0h 0m 0s
+Total active time: 0h 2m 57s
+Tracked directory: C:\
+
+----------
+Process from	30.07.2023 16:17:14
+Stopped at:	30.07.2023 16:17:57
+Duration: 0h 0m 42s
+Total events: 1692
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 42s
+Tracked directory: C:\
+
+----------
+Process from	30.07.2023 16:18:14
+Stopped at:	30.07.2023 16:24:05
+Duration: 0h 5m 350s
+Total events: 2169
+AFK #0 started at 30.07.2023 16:18:19
+Duration: 00:02:48.7485166
+AFK #1 started at 30.07.2023 16:23:20
+Duration: 00:00:09.4360034
+Total time AFK: 0h 2m 58s
+Total active time: 0h 2m 52s
+Tracked directory: C:\
+
+----------
+Process from	30.07.2023 16:25:24
+Stopped at:	30.07.2023 16:28:42
+Duration: 0h 3m 197s
+Total events: 2114
+AFK #0 started at 30.07.2023 16:26:50
+Duration: 00:01:49.5390919
+Total time AFK: 0h 1m 49s
+Total active time: 0h 1m 28s
+Tracked directory: C:\
+
+----------
+Process from	30.07.2023 16:28:46
+Stopped at:	30.07.2023 16:28:50
+Duration: 0h 0m 4s
+Total events: 230
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 4s
+Tracked directory: C:\

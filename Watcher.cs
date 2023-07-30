@@ -71,10 +71,10 @@ namespace Overwatch
                 $"{((int)duration.TotalSeconds)}s\n" +
                 $"Total events: {eventCounter}\n" +
                 $"{afkDurations}" +
-                $"Total time AFK: {(int)totalAfkTimeSpan.TotalHours}h {(int)totalAfkTimeSpan.TotalMinutes}m " +
-                $"{(int)totalAfkTimeSpan.TotalSeconds}s\n" +
-                $"Total active time: {(int)totalActiveTimeSpan.TotalHours}h {(int)totalActiveTimeSpan.TotalMinutes}m " +
-                $"{(int)totalActiveTimeSpan.TotalSeconds}s\n" +
+                $"Total time AFK: {(int)totalAfkTimeSpan.TotalHours}h {totalAfkTimeSpan.Minutes}m " +
+                $"{totalAfkTimeSpan.Seconds}s\n" +
+                $"Total active time: {(int)totalActiveTimeSpan.TotalHours}h {totalActiveTimeSpan.Minutes}m " +
+                $"{totalActiveTimeSpan.Seconds}s\n" +
                 $"Tracked directory: {_logPath}";
             sw.WriteLine(msg);
 

@@ -42,7 +42,7 @@ namespace Overwatch
 
         private static bool Handler(CtrlType sig)
         {
-            WriteSessionInfoToFile(systemEvent:false);
+            WriteSessionInfoToFile(systemEvent:false, null);
 
             switch (sig)
             {
@@ -57,7 +57,7 @@ namespace Overwatch
 
 
         // Write the tracked time to a file and check if the user closed the application or if the PC was shut down
-        private static void WriteSessionInfoToFile(bool systemEvent)
+        private static void WriteSessionInfoToFile(bool systemEvent, SessionEndedEventArgs e)
         {
 
             // Calculating the duration of the length of the programs use
@@ -97,8 +97,9 @@ namespace Overwatch
                 $"{totalActiveTimeSpan.Seconds}s\n" +
                 $"Tracked directory: {_logPath}\n" +
                 $"Closed application by SystemEvent? {systemEvent}";
-            sw.WriteLine(msg);
 
+            sw.WriteLine(msg);
+            if(systemEvent) sw.WriteLine(e.ToString());
             sw.Close();
         }
 
@@ -195,7 +196,7 @@ namespace Overwatch
         // Occurs if the PC shuts down
         private void App_SessionEnding(object sender, SessionEndedEventArgs e)
         {
-            WriteSessionInfoToFile(systemEvent: true);
+            WriteSessionInfoToFile(systemEvent: true, e);
         }
 
 

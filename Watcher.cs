@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Threading;
 using System.Runtime.InteropServices;
+using System.Windows;
+using Microsoft.Win32;
 
 namespace Overwatch
 {
@@ -40,6 +42,24 @@ namespace Overwatch
 
         private static bool Handler(CtrlType sig)
         {
+            WriteSessionInfoToFile(systemEvent:false);
+
+            switch (sig)
+            {
+                case CtrlType.CTRL_C_EVENT:
+                case CtrlType.CTRL_LOGOFF_EVENT:
+                case CtrlType.CTRL_SHUTDOWN_EVENT:
+                case CtrlType.CTRL_CLOSE_EVENT:
+                default:
+                    return false;
+            }
+        }
+
+
+        // Write the tracked time to a file and check if the user closed the application or if the PC was shut down
+        private static void WriteSessionInfoToFile(bool systemEvent)
+        {
+
             // Calculating the duration of the length of the programs use
             TimeSpan duration = DateTime.Now - startTime;
 
@@ -48,7 +68,7 @@ namespace Overwatch
 
             // Adds the AFK durations to a string
             string afkDurations = "";
-            for(int i = 0; i < AFKTracker.afkStartTimes.Count; i++)
+            for (int i = 0; i < AFKTracker.afkStartTimes.Count; i++)
             {
                 afkDurations += $"AFK #{i} started at {AFKTracker.afkStartTimes[i]}\n" +
                     $"Duration: {AFKTracker.durations[i]}\n";
@@ -56,7 +76,7 @@ namespace Overwatch
 
             // Calculating all the time the user was AFK
             TimeSpan totalAfkTimeSpan = new TimeSpan();
-            for(int i = 0; i < AFKTracker.durations.Count; i++)
+            for (int i = 0; i < AFKTracker.durations.Count; i++)
             {
                 totalAfkTimeSpan += AFKTracker.durations[i];
             }
@@ -75,20 +95,11 @@ namespace Overwatch
                 $"{totalAfkTimeSpan.Seconds}s\n" +
                 $"Total active time: {(int)totalActiveTimeSpan.TotalHours}h {totalActiveTimeSpan.Minutes}m " +
                 $"{totalActiveTimeSpan.Seconds}s\n" +
-                $"Tracked directory: {_logPath}";
+                $"Tracked directory: {_logPath}\n" +
+                $"Closed application by SystemEvent? {systemEvent}";
             sw.WriteLine(msg);
 
             sw.Close();
-
-            switch (sig)
-            {
-                case CtrlType.CTRL_C_EVENT:
-                case CtrlType.CTRL_LOGOFF_EVENT:
-                case CtrlType.CTRL_SHUTDOWN_EVENT:
-                case CtrlType.CTRL_CLOSE_EVENT:
-                default:
-                    return false;
-            }
         }
 
         public Watcher(string path)
@@ -114,6 +125,7 @@ namespace Overwatch
             watcher.Changed += OnFileChanged;
             watcher.Renamed += OnRenamed;
             watcher.Error += OnError;
+            SystemEvents.SessionEnded += App_SessionEnding;
 
             watcher.IncludeSubdirectories = true;
             watcher.EnableRaisingEvents = true;
@@ -179,6 +191,13 @@ namespace Overwatch
             // sw.WriteLine($"Der Shid wurde am {DateTime.Now} geschlossen. AuuA");
             // sw.Close();
         }
+
+        // Occurs if the PC shuts down
+        private void App_SessionEnding(object sender, SessionEndedEventArgs e)
+        {
+            WriteSessionInfoToFile(systemEvent: true);
+        }
+
 
 
 

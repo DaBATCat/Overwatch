@@ -8,6 +8,7 @@ using System.Threading;
 using System.Runtime.InteropServices;
 using System.Windows;
 using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace Overwatch
 {
@@ -28,9 +29,21 @@ namespace Overwatch
         [DllImport("Kernel32")]
         private static extern bool SetConsoleCtrlHandler(EventHandler handler, bool add);
 
+        // DLLImports for hiding the console
+        [DllImport("kernel32.dll")]
+        private static extern IntPtr GetConsoleWindow();
+
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        // 0 for minimizing
+        const int SW_HIDE = 0;
+        const int SW_SHOW = 5;
+
         private delegate bool EventHandler(CtrlType sig);
         static EventHandler _handler;
         static DateTime startTime;
+
         enum CtrlType
         {
             CTRL_C_EVENT = 0,
@@ -39,6 +52,16 @@ namespace Overwatch
             CTRL_LOGOFF_EVENT = 5,
             CTRL_SHUTDOWN_EVENT = 6
         }
+
+        public Watcher(string path)
+        {
+            watcher = new FileSystemWatcher(path);
+            _logPath = path;
+            eventCounter = 0;
+            IntPtr winHandle = GetConsoleWindow();
+            ShowWindow(winHandle, 0);
+        }
+
 
         private static bool Handler(CtrlType sig)
         {
@@ -101,13 +124,6 @@ namespace Overwatch
             sw.WriteLine(msg);
             if(systemEvent) sw.WriteLine(e.ToString());
             sw.Close();
-        }
-
-        public Watcher(string path)
-        {
-            watcher = new FileSystemWatcher(path);
-            _logPath = path;
-            eventCounter = 0;
         }
 
         public void Watch()

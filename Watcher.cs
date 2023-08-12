@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using Microsoft.Win32;
 using System.Diagnostics;
+using Microsoft.Data.Sqlite;
 
 namespace Overwatch
 {
@@ -59,7 +60,7 @@ namespace Overwatch
             _logPath = path;
             eventCounter = 0;
             IntPtr winHandle = GetConsoleWindow();
-            ShowWindow(winHandle, 0);
+            ShowWindow(winHandle, SW_HIDE);
         }
 
 

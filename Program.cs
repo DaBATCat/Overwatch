@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Threading;
+using IronPython;
+using Microsoft.Scripting.Hosting;
+using IronPython.Hosting;
 
 namespace Overwatch
 {
@@ -12,14 +15,20 @@ namespace Overwatch
     {
         static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.White;
-            new Watcher(@"C:\").Watch();
+            // Console.ForegroundColor = ConsoleColor.White;
+            // new Watcher(@"C:\").Watch();
             //var thread = new Thread(Execute);
             //thread.Start();
             //Console.WriteLine("Main Thread {0} exiting...", 
             //    Thread.CurrentThread.ManagedThreadId);
             //DoSomethingWeee();
             // AFKTracker.Track();
+            ScriptEngine engine = Python.CreateEngine();
+            ScriptScope scope = engine.CreateScope();
+            engine.ExecuteFile("main.py", scope);
+            engine.Execute("test()", scope);
+
+            // Environment.SetEnvironmentVariable("Runtime.PythonDLL", "C:\\Users\\Daniel\\source\\repos\\Overwatch\\packages\\pythonnet.3.0.1\\lib\\netstandard2.0");
             Console.ReadLine(); 
         }
 

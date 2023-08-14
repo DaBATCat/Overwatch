@@ -1,0 +1,16 @@
+Create table SessionInfo(
+	SessionID int primary key,
+    SessionStartTime datetime,
+    SessionEndTime datetime,
+    TotalSessionDuration datetime,
+    TrackedDirectory text,
+    TotalActiveTime datetime,
+    TotalAFKTime datetime,
+    TotalTimesAFK int,
+    TotalEvents int,
+    TotalCreations int,
+    TotalDeletions int,
+    TotalRenamings int,
+    TotalErrors int,
+    SessionWasClosedByEvent bool,
+    DefaultAFKStartLimitInMiliseconds long);

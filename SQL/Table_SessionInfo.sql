@@ -1,5 +1,5 @@
 Create table SessionInfo(
-	SessionID int primary key,
+    SessionID integer primary key autoincrement,
     SessionStartTime datetime,
     SessionEndTime datetime,
     TotalSessionDuration datetime,

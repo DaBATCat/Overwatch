@@ -31,7 +31,7 @@ namespace Overwatch
         private static extern bool SetConsoleCtrlHandler(EventHandler handler, bool add);
 
         // DLLImports for hiding the console
-        [DllImport("kernel32.dll")]
+        [DllImport("Kernel32")]
         private static extern IntPtr GetConsoleWindow();
 
         [DllImport("user32.dll")]
@@ -144,6 +144,7 @@ namespace Overwatch
             watcher.Renamed += OnRenamed;
             watcher.Error += OnError;
             watcher.Deleted += OnDeleted;
+
             SystemEvents.SessionEnded += App_SessionEnding;
 
             watcher.IncludeSubdirectories = true;

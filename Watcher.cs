@@ -143,6 +143,7 @@ namespace Overwatch
             watcher.Changed += OnFileChanged;
             watcher.Renamed += OnRenamed;
             watcher.Error += OnError;
+            watcher.Deleted += OnDeleted;
             SystemEvents.SessionEnded += App_SessionEnding;
 
             watcher.IncludeSubdirectories = true;
@@ -175,6 +176,12 @@ namespace Overwatch
         }
         // Bei einem Error
         private static void OnError(object sender, ErrorEventArgs e) => PrintException(e.GetException()); 
+        
+        // Bei einer Löschung
+        private static void OnDeleted(object sender, FileSystemEventArgs e)
+        {
+            CountLog(LogString($"File deleted: {e.FullPath}"), ConsoleColor.Gray);
+        }
         
         // Default log with number entry
         private static void CountLog(string content, ConsoleColor consoleColor)

@@ -15,19 +15,19 @@ namespace Overwatch
     {
         static void Main(string[] args)
         {
-            // Console.ForegroundColor = ConsoleColor.White;
-            // new Watcher(@"C:\").Watch();
+            Console.ForegroundColor = ConsoleColor.White;
+            new Watcher(@"C:\").Watch();
             //var thread = new Thread(Execute);
             //thread.Start();
             //Console.WriteLine("Main Thread {0} exiting...", 
             //    Thread.CurrentThread.ManagedThreadId);
             //DoSomethingWeee();
             // AFKTracker.Track();
-            ScriptEngine engine = Python.CreateEngine();
-            ScriptScope scope = engine.CreateScope();
-            engine.ExecuteFile("main.py", scope);
-            engine.Execute("test()", scope);
-
+            // ScriptEngine engine = Python.CreateEngine();
+            // ScriptScope scope = engine.CreateScope();
+            // engine.ExecuteFile("main.py", scope);
+            // int a = engine.Execute("test()", scope);
+            // Console.WriteLine("Der Wert ist: " + a);
             // Environment.SetEnvironmentVariable("Runtime.PythonDLL", "C:\\Users\\Daniel\\source\\repos\\Overwatch\\packages\\pythonnet.3.0.1\\lib\\netstandard2.0");
             Console.ReadLine(); 
         }

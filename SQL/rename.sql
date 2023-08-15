@@ -1,0 +1,2 @@
+alter table SessionInfo
+Rename column SessionWasClosedByEvent to SessionWasClosedBySystemEvent;

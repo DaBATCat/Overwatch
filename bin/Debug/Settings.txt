@@ -1,0 +1,7 @@
+This is a comment
+Startonboot = true
+
+Another very good set = false
+
+This is just another comment
+Equ = 0.5

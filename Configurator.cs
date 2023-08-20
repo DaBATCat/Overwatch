@@ -24,25 +24,28 @@ namespace Overwatch
         }
         public static string GetSettings()
         {
+            char commentChar = '!';
+
             string settings = "";
 
             string line;
 
             int amountOfSettings = 0;
+            int a = 0;
             
-            // This sets the amount of Settings for each line which inherits '='
+            // This sets the amount of Settings for each not commented line which inherit '='
             using (StreamReader reader = new StreamReader("settings.txt")) 
             { 
                 while((line = reader.ReadLine()) != null)
                 {
-                    if (line.Contains("="))
+                    if (line.Length > 0 && line.TrimStart()[0] != commentChar)
                     {
                         amountOfSettings++;
                     }
                 }
             }
 
-            // Read out the options
+            // Read out the options' names
             string[] options = new string[amountOfSettings];
             char limiter = '=';
             int settingsIndex = 0;
@@ -50,15 +53,19 @@ namespace Overwatch
             {
                 while ((line = reader.ReadLine()) != null)
                 {
-                    string[] words = line.Split(' ');
-                    line = "";
-                    foreach(string word in words) { line += word; }
-                    int index = line.IndexOf(limiter);
-                    if (index >= 0)
+                    if(line.Length > 0 && line.TrimStart()[0] != commentChar)
                     {
-                        options[settingsIndex] = line.Substring(0, index);
-                        settingsIndex++;
+                        string[] words = line.Split(' ');
+                        line = "";
+                        foreach (string word in words) { line += word; }
+                        int index = line.IndexOf(limiter);
+                        if (index >= 0)
+                        {
+                            options[settingsIndex] = line.Substring(0, index);
+                            settingsIndex++;
+                        }
                     }
+                    
                 }
             }
 
@@ -70,14 +77,18 @@ namespace Overwatch
             {
                 while ((line = reader.ReadLine()) != null)
                 {
-                    string[] words = line.Split(' ');
-                    line = "";
-                    foreach (string word in words) { line += word; }
-                    int index = line.IndexOf(limiter);
-                    if (index >= 0)
+                    if (line.Length > 0 && line.TrimStart()[0] != commentChar)
                     {
-                        values[settingsIndex] = line.Substring(index + 1);
-                        settingsIndex++;
+                        string[] words = line.Split(' ');
+                        line = "";
+                        foreach (string word in words) { line += word; }
+                        int index = line.IndexOf(limiter);
+                        if (index >= 0)
+                        {
+                            values[settingsIndex] = line.Substring(index + 1);
+                            settingsIndex++;
+                        }
+
                     }
                 }
             }

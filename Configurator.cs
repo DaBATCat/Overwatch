@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,9 @@ namespace Overwatch
 {
     internal class Configurator
     {
+        static string path = "settings.txt";
+        static char commentChar = '!';
+
         public enum Datatypes
         {
             INT,
@@ -24,17 +28,14 @@ namespace Overwatch
         }
         public static string GetSettings()
         {
-            char commentChar = '!';
-
             string settings = "";
 
             string line;
 
             int amountOfSettings = 0;
-            int a = 0;
             
             // This sets the amount of Settings for each not commented line which inherit '='
-            using (StreamReader reader = new StreamReader("settings.txt")) 
+            using (StreamReader reader = new StreamReader(path)) 
             { 
                 while((line = reader.ReadLine()) != null)
                 {
@@ -49,7 +50,7 @@ namespace Overwatch
             string[] options = new string[amountOfSettings];
             char limiter = '=';
             int settingsIndex = 0;
-            using(StreamReader reader = new StreamReader("settings.txt"))
+            using(StreamReader reader = new StreamReader(path))
             {
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -73,7 +74,7 @@ namespace Overwatch
             string[] values = new string[options.Length];
             settingsIndex = 0;
 
-            using (StreamReader reader = new StreamReader("settings.txt"))
+            using (StreamReader reader = new StreamReader(path))
             {
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -101,6 +102,152 @@ namespace Overwatch
             return settings;
         }
 
+        public static string[,] Settings()
+        {
+            string[,] finalValues;
+
+            int amountOfSettings = 0;
+
+            string line;
+
+            using (StreamReader reader = new StreamReader(path))
+            {
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (line.Length > 0 && line.TrimStart()[0] != commentChar)
+                    {
+                        amountOfSettings++;
+                    }
+                }
+            }
+
+            // Read out the options' names
+            string[] options = new string[amountOfSettings];
+            char limiter = '=';
+            int settingsIndex = 0;
+            using (StreamReader reader = new StreamReader(path))
+            {
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (line.Length > 0 && line.TrimStart()[0] != commentChar)
+                    {
+                        string[] words = line.Split(' ');
+                        line = "";
+                        foreach (string word in words) { line += word; }
+                        int index = line.IndexOf(limiter);
+                        if (index >= 0)
+                        {
+                            options[settingsIndex] = line.Substring(0, index);
+                            settingsIndex++;
+                        }
+                    }
+
+                }
+            }
+
+            // Read out the values for the options
+            string[] values = OptionValues();
+
+            // int amountOfSettings = AmountOfSettings();
+            finalValues = new string[amountOfSettings, amountOfSettings];
+            for(int i = 0; i < amountOfSettings; i++)
+            {
+                finalValues[i, 0] = options[i];
+            }
+            
+            for(int i = 0; i < amountOfSettings; i++)
+            {
+                finalValues[0, i] = values[i];
+            }
+            for(int i = 0; i < amountOfSettings; i++)
+            {
+                Console.WriteLine($"{finalValues[i, 0]}:{finalValues[0,i]}");
+            }
+            return finalValues;
+        }
+
+        static int AmountOfSettings()
+        {
+            string line = "";
+            int amountOfSettings = 0;
+            using (StreamReader reader = new StreamReader(path))
+            {
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (line.Length > 0 && line.TrimStart()[0] != commentChar)
+                    {
+                        amountOfSettings++;
+                    }
+                }
+            }
+            return amountOfSettings;
+        }
+
+        static string[] OptionNames()
+        {
+            int amountOfSettings = AmountOfSettings();
+            string line = "";
+            string[] options = new string[amountOfSettings];
+            char limiter = '=';
+            int settingsIndex = 0;
+            using (StreamReader reader = new StreamReader(path))
+            {
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (line.Length > 0 && line.TrimStart()[0] != commentChar)
+                    {
+                        string[] words = line.Split(' ');
+                        line = "";
+                        foreach (string word in words) { line += word; }
+                        int index = line.IndexOf(limiter);
+                        if (index >= 0)
+                        {
+                            options[settingsIndex] = line.Substring(0, index);
+                            settingsIndex++;
+                        }
+                    }
+
+                }
+            }
+            return options;
+        }
+
+        public static string[] OptionValues()
+        {
+            int amountOfSettings = AmountOfSettings();
+            string line = "";
+            string[] values = new string[OptionNames().Length];
+            int settingsIndex = 0;
+            char limiter = '=';
+
+            using (StreamReader reader = new StreamReader(path))
+            {
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (line.Length > 0 && line.TrimStart()[0] != commentChar)
+                    {
+                        string[] words = line.Split(' ');
+                        line = "";
+                        foreach (string word in words) { line += word; }
+                        int index = line.IndexOf(limiter);
+                        if (index >= 0)
+                        {
+                            values[settingsIndex] = line.Substring(index + 1);
+                            settingsIndex++;
+                        }
+
+                    }
+                }
+            }
+
+            return values;
+        }
+
+        // Bool in settings.txt
+        // public bool GetProperty(string varName)
+        // {
+        //     
+        // }
         
         public static Datatypes GetDatatype(string input)
         {

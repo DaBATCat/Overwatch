@@ -1,7 +1,8 @@
 !This is a comment
-    !Startonboot = true
+Startonboot = true
 ! Wow a new comment
 !Another very good set = false
     !Not A Value = 33
 !This is just another comment
-Equ = 0.5
+Aa a = 1
+   B E R saas=   TRUE

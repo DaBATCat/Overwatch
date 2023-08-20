@@ -31,8 +31,9 @@ namespace Overwatch
             // Console.WriteLine("Der Wert ist: " + a);
             // Environment.SetEnvironmentVariable("Runtime.PythonDLL", "C:\\Users\\Daniel\\source\\repos\\Overwatch\\packages\\pythonnet.3.0.1\\lib\\netstandard2.0");
             PrintRegistryKeys();
-            Console.WriteLine("Settings:");
-            Console.WriteLine(Configurator.GetSettings());
+            // Console.WriteLine("Settings:");
+            // Console.WriteLine(Configurator.GetSettings());
+            Configurator.Settings();
             Console.ReadLine(); 
         }
 

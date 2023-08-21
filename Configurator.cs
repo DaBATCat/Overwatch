@@ -20,7 +20,8 @@ namespace Overwatch
             INT,
             DOUBLE,
             BOOL,
-            STRING
+            STRING,
+            LONG
         }
         public static void EnableStartOnBoot()
         {
@@ -245,16 +246,68 @@ namespace Overwatch
         }
 
         // Bool in settings.txt
-        // public bool GetProperty(string varName)
-        // {
-        //     
-        // }
+        public static string GetVariable(string varName)
+        {
+            string[,] settings = Settings();
+            int amountOfSettings = AmountOfSettings();
+            int index = 0;
+            bool varIsDeclared = false;
+
+            // First search for the name
+            for(int i = 0; i < amountOfSettings; i++)
+            {
+                if (settings[0, i].ToLower() == varName.ToLower())
+                {
+                    varIsDeclared = true;
+                    index = i;
+                    break;
+                }
+            }
+            if (!varIsDeclared) throw new Exception($"\"{varName}\" couldn't be found");
+
+            // Return the value
+            return settings[1, index];
+        }
+
+        public static int GetInt(string varName)
+        {
+            return GetDatatype(GetVariable(varName)) == Datatypes.INT
+                ? Convert.ToInt32(GetVariable(varName))
+                : throw new Exception($"\"{varName}\" is not an integer");
+        }
+
+        public static string GetString(string varName)
+        {
+            return GetVariable(varName);
+        }
+
+        public static double GetDouble(string varName)
+        {
+            return GetDatatype(GetVariable(varName)) == Datatypes.DOUBLE 
+                ? Convert.ToDouble(GetVariable(varName)) 
+                : throw new Exception($"\"{varName}\" is not a double");
+        }
+
+        public static bool GetBool(string varName)
+        {
+            return GetDatatype(GetVariable(varName)) == Datatypes.BOOL 
+                ? Convert.ToBoolean(GetVariable(varName)) 
+                : throw new Exception($"\"{varName} is not a boolean");
+        }
+
+        public static long GetLong(string varName)
+        {
+            return GetDatatype(GetVariable(varName)) == Datatypes.LONG 
+                ? Convert.ToInt64(GetVariable(varName)) 
+                : throw new Exception($"\"{varName} is not a long or couldn't be found");
+        }
         
         public static Datatypes GetDatatype(string input)
         {
             if (int.TryParse(input, out int n)) return Datatypes.INT;
             if (double.TryParse(input, out double d)) return Datatypes.DOUBLE;
             if (bool.TryParse(input, out bool b)) return Datatypes.BOOL;
+            if (long.TryParse(input, out long l)) return Datatypes.LONG;
             return Datatypes.STRING;
 
         }

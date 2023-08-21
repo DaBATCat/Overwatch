@@ -4,5 +4,5 @@ Startonboot = true
 !Another very good set = false
     !Not A Value = 33
 !This is just another comment
-Aa a = 1
+Aa a = 1.2
    B E R saas=   TRUE

@@ -34,6 +34,8 @@ namespace Overwatch
             // Console.WriteLine("Settings:");
             // Console.WriteLine(Configurator.GetSettings());
             Configurator.Settings();
+            Console.WriteLine(Configurator.GetSettings());
+            Console.WriteLine(Configurator.GetInt("aaa"));
             Console.ReadLine(); 
         }
 

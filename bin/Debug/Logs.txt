@@ -1366,3 +1366,65 @@ Total time AFK: 0h 0m 0s
 Total active time: 0h 0m 17s
 Tracked directory: C:\
 Closed application by SystemEvent? False
+
+----------
+Process from	21.08.2023 14:25:34
+Stopped at:	21.08.2023 14:26:10
+Duration: 0h 0m 35s
+Total events: 1163
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 35s
+Tracked directory: C:\
+Closed application by SystemEvent? True
+Microsoft.Win32.SessionEndedEventArgs
+
+----------
+Process from	21.08.2023 14:32:10
+Stopped at:	21.08.2023 14:32:50
+Duration: 0h 0m 39s
+Total events: 13249
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 39s
+Tracked directory: C:\
+Closed application by SystemEvent? True
+Microsoft.Win32.SessionEndedEventArgs
+
+----------
+Process from	21.08.2023 15:43:08
+Stopped at:	21.08.2023 15:43:55
+Duration: 0h 0m 46s
+Total events: 572
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 46s
+Tracked directory: C:\
+Closed application by SystemEvent? False
+
+----------
+Process from	21.08.2023 15:58:11
+Stopped at:	21.08.2023 15:58:19
+Duration: 0h 0m 7s
+Total events: 359
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 7s
+Tracked directory: C:\
+Closed application by SystemEvent? False
+
+----------
+Process from	21.08.2023 16:04:11
+Stopped at:	21.08.2023 16:04:19
+Duration: 0h 0m 7s
+Total events: 343
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 7s
+Tracked directory: C:\
+Closed application by SystemEvent? False
+
+----------
+Process from	21.08.2023 16:06:46
+Stopped at:	21.08.2023 16:07:45
+Duration: 0h 0m 58s
+Total events: 2694
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 58s
+Tracked directory: C:\
+Closed application by SystemEvent? False

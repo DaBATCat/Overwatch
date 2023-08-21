@@ -1,1 +1,1 @@
-C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\Overwatch.exe --autostart
+"C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\Overwatch.exe"

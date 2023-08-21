@@ -60,7 +60,7 @@ namespace Overwatch
                         line = "";
                         foreach (string word in words) { line += word; }
                         int index = line.IndexOf(limiter);
-                        if (index >= 0)
+                        if (index > 0)
                         {
                             options[settingsIndex] = line.Substring(0, index);
                             settingsIndex++;
@@ -84,7 +84,7 @@ namespace Overwatch
                         line = "";
                         foreach (string word in words) { line += word; }
                         int index = line.IndexOf(limiter);
-                        if (index >= 0)
+                        if (index > 0)
                         {
                             values[settingsIndex] = line.Substring(index + 1);
                             settingsIndex++;
@@ -152,17 +152,18 @@ namespace Overwatch
             finalValues = new string[amountOfSettings, amountOfSettings];
             for(int i = 0; i < amountOfSettings; i++)
             {
-                finalValues[i, 0] = options[i];
-            }
-            
-            for(int i = 0; i < amountOfSettings; i++)
-            {
-                finalValues[0, i] = values[i];
+                finalValues[0, i] = options[i];
             }
             for(int i = 0; i < amountOfSettings; i++)
             {
-                Console.WriteLine($"{finalValues[i, 0]}:{finalValues[0,i]}");
+                finalValues[1, i] = values[i];
             }
+
+            // Values are set like this:
+            // for (int i = 0; i < amountOfSettings; i++)
+            // {                        Value name            actual value
+            //     Console.WriteLine($"{finalValues[0, i]}:{finalValues[1, i]}");
+            // }
             return finalValues;
         }
 

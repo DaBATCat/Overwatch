@@ -10,7 +10,7 @@ namespace Overwatch
     internal class AFKTracker
     {
         // Wie lange der User keine Taste gedrückt hat, bis es als AFK gewertet wird (in Millisekunden)
-        static readonly uint AFK_TIME_BEGINNING = 6000;
+        static readonly uint AFK_TIME_BEGINNING = Configurator.GetUInt("AFK Time Beginning " );
 
         // List for when the User started to go AFK
         public static List<DateTime> afkStartTimes = new List<DateTime>();
@@ -30,7 +30,7 @@ namespace Overwatch
 
         // Main entry point for starting Tracking (best from extra thread because of endless loop until the program stops)
         public static void Track()
-        {
+        { 
             bool consoleOutput = true;
 
             uint listIndex = 0;

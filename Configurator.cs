@@ -18,10 +18,12 @@ namespace Overwatch
         public enum Datatypes
         {
             INT,
+            UINT,
             DOUBLE,
             BOOL,
             STRING,
-            LONG
+            LONG,
+            ULONG
         }
         public static void EnableStartOnBoot()
         {
@@ -148,24 +150,31 @@ namespace Overwatch
 
             // Read out the values for the options
             string[] values = OptionValues();
-
-            // int amountOfSettings = AmountOfSettings();
-            finalValues = new string[amountOfSettings, amountOfSettings];
-            for(int i = 0; i < amountOfSettings; i++)
+            Console.WriteLine("Amount of settings: " + amountOfSettings);
+            if (amountOfSettings > 1)
             {
-                finalValues[0, i] = options[i];
+                finalValues = new string[amountOfSettings, amountOfSettings];
+                for (int i = 0; i < amountOfSettings; i++)
+                {
+                    finalValues[0, i] = options[i];
+                }
+                for (int i = 0; i < amountOfSettings; i++)
+                {
+                    finalValues[1, i] = values[i];
+                }
+                return finalValues;
             }
-            for(int i = 0; i < amountOfSettings; i++)
+            else if (amountOfSettings == 1)
             {
-                finalValues[1, i] = values[i];
+                return new string[,] { { $"{options[0]}" }, { $"{values[0]}" } };
             }
+            else throw new Exception();
 
             // Values are set like this:
             // for (int i = 0; i < amountOfSettings; i++)
             // {                        Value name            actual value
             //     Console.WriteLine($"{finalValues[0, i]}:{finalValues[1, i]}");
             // }
-            return finalValues;
         }
 
         static int AmountOfSettings()
@@ -271,45 +280,55 @@ namespace Overwatch
 
         public static int GetInt(string varName)
         {
-            return GetDatatype(GetVariable(varName)) == Datatypes.INT
-                ? Convert.ToInt32(GetVariable(varName))
-                : throw new Exception($"\"{varName}\" is not an integer");
+            varName = varName.Replace(" ", "");
+            return Convert.ToInt32(GetVariable(varName));
         }
 
         public static string GetString(string varName)
         {
+            varName = varName.Replace(" ", "");
             return GetVariable(varName);
         }
 
         public static double GetDouble(string varName)
         {
-            return GetDatatype(GetVariable(varName)) == Datatypes.DOUBLE 
-                ? Convert.ToDouble(GetVariable(varName)) 
-                : throw new Exception($"\"{varName}\" is not a double");
+            varName = varName.Replace(" ", "");
+            return Convert.ToDouble(GetVariable(varName));
         }
 
         public static bool GetBool(string varName)
         {
-            return GetDatatype(GetVariable(varName)) == Datatypes.BOOL 
-                ? Convert.ToBoolean(GetVariable(varName)) 
-                : throw new Exception($"\"{varName} is not a boolean");
+            varName = varName.Replace(" ", "");
+            return Convert.ToBoolean(GetVariable(varName));
         }
 
         public static long GetLong(string varName)
         {
-            return GetDatatype(GetVariable(varName)) == Datatypes.LONG 
-                ? Convert.ToInt64(GetVariable(varName)) 
-                : throw new Exception($"\"{varName} is not a long or couldn't be found");
+            varName = varName.Replace(" ", "");
+            return Convert.ToInt64(GetVariable(varName));
+        }
+        public static uint GetUInt(string varName)
+        {
+            varName = varName.Replace(" ", "");
+            return Convert.ToUInt32(GetVariable(varName));
+        }
+        public static ulong GetULong(string varName)
+        {
+            varName = varName.Replace(" ", "");
+            return Convert.ToUInt64(GetVariable(varName));
         }
         
         public static Datatypes GetDatatype(string input)
         {
-            if (int.TryParse(input, out int n)) return Datatypes.INT;
-            if (double.TryParse(input, out double d)) return Datatypes.DOUBLE;
-            if (bool.TryParse(input, out bool b)) return Datatypes.BOOL;
-            if (long.TryParse(input, out long l)) return Datatypes.LONG;
+            if (int.TryParse(input, out int n))         return Datatypes.INT;
+            if (double.TryParse(input, out double d))   return Datatypes.DOUBLE;
+            if (bool.TryParse(input, out bool b))       return Datatypes.BOOL;
+            if (long.TryParse(input, out long l))       return Datatypes.LONG;
+            if (uint.TryParse(input, out uint un))      return Datatypes.UINT;
+            if (ulong.TryParse(input, out ulong ul))    return Datatypes.ULONG;
             return Datatypes.STRING;
 
         }
+
     }
 }

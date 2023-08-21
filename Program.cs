@@ -9,6 +9,7 @@ using IronPython;
 using Microsoft.Scripting.Hosting;
 using IronPython.Hosting;
 using Microsoft.Win32;
+using System.Reflection;
 
 namespace Overwatch
 {
@@ -18,7 +19,7 @@ namespace Overwatch
         {
             Console.ForegroundColor = ConsoleColor.White;
             new Watcher(@"C:\").Watch();
-            // var thread = new Thread(Execute);
+            var thread = new Thread(Execute);
             //thread.Start();
             //Console.WriteLine("Main Thread {0} exiting...", 
             //    Thread.CurrentThread.ManagedThreadId);
@@ -30,7 +31,11 @@ namespace Overwatch
             // int a = engine.Execute("test()", scope);
             // Console.WriteLine("Der Wert ist: " + a);
             // Environment.SetEnvironmentVariable("Runtime.PythonDLL", "C:\\Users\\Daniel\\source\\repos\\Overwatch\\packages\\pythonnet.3.0.1\\lib\\netstandard2.0");
-            PrintRegistryKeys();
+            
+            // Configurator.AddRegistryKey();
+            // Console.WriteLine(Configurator.RunsOnStartup());
+            // Configurator.PrintRegistryKeys();
+            
             // Console.WriteLine("Settings:");
             // Console.WriteLine(Configurator.GetSettings());
             Console.ReadLine(); 
@@ -70,15 +75,6 @@ namespace Overwatch
             new Watcher(@"E:\").Watch();
         }
 
-        static void PrintRegistryKeys()
-        {
-            RegistryKey registryKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            string[] values = registryKey.GetValueNames();
-            foreach (string value in values)
-            {
-                Console.WriteLine(value);
-            }
-
-        }
+        
     }
 }

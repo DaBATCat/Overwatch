@@ -1336,3 +1336,33 @@ Total time AFK: 0h 0m 0s
 Total active time: 0h 0m 7s
 Tracked directory: C:\
 Closed application by SystemEvent? False
+
+----------
+Process from	21.08.2023 13:52:42
+Stopped at:	21.08.2023 13:52:53
+Duration: 0h 0m 11s
+Total events: 495
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 11s
+Tracked directory: C:\
+Closed application by SystemEvent? False
+
+----------
+Process from	21.08.2023 13:53:57
+Stopped at:	21.08.2023 13:54:03
+Duration: 0h 0m 6s
+Total events: 461
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 6s
+Tracked directory: C:\
+Closed application by SystemEvent? False
+
+----------
+Process from	21.08.2023 14:23:36
+Stopped at:	21.08.2023 14:23:53
+Duration: 0h 0m 17s
+Total events: 540
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 17s
+Tracked directory: C:\
+Closed application by SystemEvent? False

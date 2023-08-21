@@ -3,10 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using static IronPython.Modules.PythonCsvModule;
 
 namespace Overwatch
 {
@@ -14,6 +16,10 @@ namespace Overwatch
     {
         static string path = "settings.txt";
         static char commentChar = '!';
+
+        static string runRegistryKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
+        static string appName = Assembly.GetExecutingAssembly().GetName().Name;
+        static string startupBatchScript = "StartUpbatch.bat";
 
         public enum Datatypes
         {
@@ -328,6 +334,70 @@ namespace Overwatch
             if (ulong.TryParse(input, out ulong ul))    return Datatypes.ULONG;
             return Datatypes.STRING;
 
+        }
+        
+        // Registry key options for auto-startup
+
+        public static void PrintRegistryKeys()
+        {
+            RegistryKey registryKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            string[] values = registryKey.GetValueNames();
+            foreach (string value in values)
+            {
+                Console.WriteLine(value);
+            }
+            Console.WriteLine(registryKey.ToString());
+
+        }
+        public static void AddRegistryKey()
+        {
+            string appName = Assembly.GetExecutingAssembly().GetName().Name;
+            if (!RunsOnStartup())
+            {
+                // Add the entry to the Windows-registration
+                RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@runRegistryKey, true);
+                registryKey.SetValue(appName, GetStartUpScript());
+                registryKey.Close();
+            }
+            else throw new Exception($"{appName} is already registered");
+        }
+        public static void RemoveRegistryKey()
+        {
+            string appName = Assembly.GetExecutingAssembly().GetName().Name;
+            if (RunsOnStartup())
+            {
+                RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@runRegistryKey, true);
+                registryKey.DeleteValue(appName, true);
+                registryKey.Close();
+            }
+            else throw new Exception($"{appName} was not registered");
+        }
+
+        // Check if Overwatch is registered in the RunRegistryKeys
+        public static bool RunsOnStartup()
+        {
+            RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@runRegistryKey, true);
+
+            string[] registryKeys = registryKey.GetValueNames();
+            foreach (string value in registryKeys)
+            {
+                if (value == appName) return true;
+            }
+            return false;
+        }
+        
+        public static string GetStartUpScript()
+        {
+            string result = "";
+            string line = "";
+            using (StreamReader reader = new StreamReader(startupBatchScript))
+            {
+                while ((line = reader.ReadLine()) != null)
+                {
+                    result += $"{line}";
+                }
+            }
+            return result;
         }
 
     }

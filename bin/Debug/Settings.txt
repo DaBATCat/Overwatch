@@ -14,5 +14,8 @@ TrackedPath = E:\
 ! Should the program display infos at the beginning?
 DisplayInfos = true
 
+! Path for the Settings.txt
+! SettingsPath = C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\settings.txt
+
 ! Path to the logging file
-LogPath = C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\Logs.txt
+! LogPath = C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\Logs.txt

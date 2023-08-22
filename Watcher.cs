@@ -86,7 +86,7 @@ namespace Overwatch
             TimeSpan duration = DateTime.Now - startTime;
 
             // Here for opereations before closing
-            StreamWriter sw = new StreamWriter("C:\\Users\\Daniel\\source\\repos\\Overwatch\\Overwatch\\bin\\Debug\\Logs.txt", true);
+            StreamWriter sw = new StreamWriter($"C:\\Users\\{Environment.UserName}\\Overwatch\\Logs.txt", true);
 
             // Adds the AFK durations to a string
             string afkDurations = "";

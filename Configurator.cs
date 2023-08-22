@@ -19,7 +19,7 @@ namespace Overwatch
 {
     internal class Configurator
     {
-        static string path = "C:\\Users\\Daniel\\source\\repos\\Overwatch\\Overwatch\\bin\\Debug\\settings.txt";
+        static string path = $"C:\\Users\\{Environment.UserName}\\Overwatch\\Settings.txt";
         static char commentChar = '!';
 
         static string runRegistryKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
@@ -454,6 +454,7 @@ namespace Overwatch
 
         public static void InitStartup()
         {
+            
             if (GetBool("RunOnStartup"))
             {
                 AddRegistryKey();

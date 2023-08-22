@@ -12,6 +12,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using static IronPython.Modules.PythonCsvModule;
+using System.Runtime.InteropServices;
+using static IronPython.Modules.PythonDateTime;
 
 namespace Overwatch
 {
@@ -23,6 +25,54 @@ namespace Overwatch
         static string runRegistryKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
         static string appName = Assembly.GetExecutingAssembly().GetName().Name;
         static string startupBatchScript = "StartUpbatch.bat";
+
+        // For letting Overwatch blink in the task bar
+
+        const uint FLASHW_STOP = 0; // Stop flashing
+        const uint FLASHW_CAPTION = 1;
+        const uint FLASHW_TRAY = 2; // Flash the taskbar button
+        const uint FLASHW_ALL = 3; // Flash window caption and taskbar button
+        const uint FLASHW_TIMER = 4; // Flash continuously, until the FLASHW_STOP flag is set
+        const uint FLASHW_TIMERNOFG = 12; // Flash continuously until the window comes to the foreground.
+
+        [DllImport("User32")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool FlashWindowEx(ref FLASHWINFO pwfi);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct FLASHWINFO
+        {
+            public uint cbSize; // Size of the structure in Bytes
+            public IntPtr hwnd; // Handle to the window to be flashed, window can be opened or minimized
+
+            public uint dwFlags; // Flash Status
+            public uint uCount; // Amount of times to flash the window
+            public uint dwTimeout; // Rate at which the window is being flashed in milliseconds. If 0, the function uses the default cursor blink rate
+        }
+
+        public static void FlashWindow(uint count = uint.MaxValue)
+        {
+            FLASHWINFO fInfo = new FLASHWINFO();
+            fInfo.cbSize = Convert.ToUInt32(Marshal.SizeOf(fInfo));
+            fInfo.hwnd = Process.GetCurrentProcess().MainWindowHandle;
+            fInfo.dwFlags = FLASHW_TRAY| FLASHW_TIMERNOFG;
+            fInfo.uCount = count;
+            fInfo.dwTimeout = 0;
+
+
+            FlashWindowEx(ref fInfo);
+        }
+
+        public static void StopFlashingWindow()
+        {
+            FLASHWINFO fInfo = new FLASHWINFO();
+            fInfo.hwnd = Process.GetCurrentProcess().MainWindowHandle;
+            fInfo.cbSize = Convert.ToUInt32(Marshal.SizeOf(fInfo));
+            fInfo.dwFlags = FLASHW_STOP;
+            fInfo.uCount = uint.MaxValue;
+            fInfo.dwTimeout = 0;
+            FlashWindowEx(ref fInfo);
+        }
 
         public enum Datatypes
         {
@@ -419,6 +469,7 @@ namespace Overwatch
                     // Show the window for the message
                     Watcher.ShowWindow(Watcher.GetConsoleWindow(), Watcher.SW_SHOW);
 
+                    // Program should blink here
                     string input;
 
                     void Ask()

@@ -158,8 +158,6 @@ namespace Overwatch
 
             // Saves the timestamp when the program starts
             startTime = DateTime.Now;
-
-
         }
 
         // Wenn eine Datei oder etwas in einem Pfad umbenannt wird

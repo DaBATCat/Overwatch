@@ -1,0 +1,10 @@
+
+----------
+Process from	22.08.2023 11:57:37
+Stopped at:	22.08.2023 11:57:54
+Duration: 0h 0m 17s
+Total events: 7
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 17s
+Tracked directory: E:\
+Closed application by SystemEvent? False

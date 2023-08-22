@@ -59,8 +59,6 @@ namespace Overwatch
             watcher = new FileSystemWatcher(path);
             _logPath = path;
             eventCounter = 0;
-            IntPtr winHandle = GetConsoleWindow();
-            ShowWindow(winHandle, SW_HIDE);
         }
 
 

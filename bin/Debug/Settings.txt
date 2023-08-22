@@ -1,3 +1,6 @@
+! The current version
+CurrentVersion = 0.1.0
+
 ! This is the time from which the actionless time is counted as AFK (in miliseconds), here: 10 Minutes
 ! 10 mins = 600000 millisecs
 AfkTimeBeginning = 600000
@@ -7,3 +10,6 @@ RunOnStartup = false
 
 ! This is the tracked path
 TrackedPath = E:\
+
+! Should the program display infos at the beginning?
+DisplayInfos = true

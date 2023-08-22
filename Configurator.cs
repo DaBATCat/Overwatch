@@ -209,7 +209,6 @@ namespace Overwatch
 
             // Read out the values for the options
             string[] values = OptionValues();
-            Console.WriteLine("Amount of settings: " + amountOfSettings);
             if (amountOfSettings > 1)
             {
                 finalValues = new string[amountOfSettings, amountOfSettings];
@@ -475,6 +474,7 @@ namespace Overwatch
                     void Ask()
                     {
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.Title = "Property change";
                         Console.WriteLine("Info:\nA property has been changed. Do you want to restart the application now? (Y/N)");
                         Console.ForegroundColor = ConsoleColor.White;
                         input = Console.ReadLine();
@@ -498,7 +498,44 @@ namespace Overwatch
                         Process.Start(fileName);
                         Environment.Exit(0);
                     }
+                    else
+                    {
+                        Console.Clear();
+                    }
                 }
+            }
+
+            PrintOutInfos();
+        }
+
+        public static bool PrintInfosAtBeginning() => GetBool("DisplayInfos");
+        public static void PrintOutInfos()
+        {
+            IntPtr winHandle = Watcher.GetConsoleWindow();
+            if (PrintInfosAtBeginning())
+            {
+                // Show the window
+                Watcher.ShowWindow(winHandle, Watcher.SW_SHOW);
+
+                string line = "========================================";
+                string thanks = "Thank you for using Overwatch :)\nPress any key to continue...";
+                string properties = "";
+                string[,] settings = Settings();
+                for(int i = 0; i < AmountOfSettings(); i++)
+                {
+                    if (settings[0,i].ToLower() != "currentversion")
+                    {
+                        properties += $"{settings[0, i]} = {settings[1, i]}\n";
+                    }
+                }
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($"Overwatch version {GetString("currentversion")}\n{line}\n{properties}{line}\n{thanks}");
+                Console.ReadKey();
+                Console.Clear();
+            }
+            else
+            {
+                Watcher.ShowWindow(winHandle, Watcher.SW_HIDE);
             }
         }
 

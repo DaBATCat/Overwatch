@@ -3,4 +3,7 @@
 AfkTimeBeginning = 600000
 
 ! Should the program start within the boot sequence of the PC?
-RunOnStartup = True
+RunOnStartup = false
+
+! This is the tracked path
+TrackedPath = E:\

@@ -1,6 +1,9 @@
-﻿using Microsoft.Win32;
+﻿using IronPython.Compiler.Ast;
+using IronPython.Modules;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -359,7 +362,7 @@ namespace Overwatch
                 registryKey.SetValue(appName, GetStartUpScript());
                 registryKey.Close();
             }
-            else throw new Exception($"{appName} is already registered");
+            // else throw new Exception($"{appName} is already registered");
         }
         public static void RemoveRegistryKey()
         {
@@ -370,7 +373,7 @@ namespace Overwatch
                 registryKey.DeleteValue(appName, true);
                 registryKey.Close();
             }
-            else throw new Exception($"{appName} was not registered");
+            // else throw new Exception($"{appName} was not registered");
         }
 
         // Check if Overwatch is registered in the RunRegistryKeys
@@ -398,6 +401,54 @@ namespace Overwatch
                 }
             }
             return result;
+        }
+
+        public static void InitStartup()
+        {
+            if (GetBool("RunOnStartup"))
+            {
+                AddRegistryKey();
+            }
+            else if(!GetBool("RunOnStartup"))
+            {
+                // If the value has been changed recently from true to false, the program will ask for being restarted
+                if (RunsOnStartup())
+                {
+                    RemoveRegistryKey();
+
+                    // Show the window for the message
+                    Watcher.ShowWindow(Watcher.GetConsoleWindow(), Watcher.SW_SHOW);
+
+                    string input;
+
+                    void Ask()
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.WriteLine("Info:\nA property has been changed. Do you want to restart the application now? (Y/N)");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        input = Console.ReadLine();
+                        if (input.ToUpper() == "Y" || input.ToUpper() == "N")
+                        {
+                            
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not the case");
+                            Console.WriteLine(input.ToUpper());
+                            Ask();
+                        }
+                    }
+                    Ask();
+
+                    if(input.ToUpper() == "Y")
+                    {
+                        string fileName = Process.GetCurrentProcess().MainModule.FileName;
+                        Process.Start(fileName);
+                        Environment.Exit(0);
+                    }
+                }
+            }
         }
 
     }

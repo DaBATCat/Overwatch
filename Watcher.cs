@@ -32,14 +32,14 @@ namespace Overwatch
 
         // DLLImports for hiding the console
         [DllImport("Kernel32")]
-        private static extern IntPtr GetConsoleWindow();
+        public static extern IntPtr GetConsoleWindow();
 
         [DllImport("user32.dll")]
-        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
         // 0 for minimizing
-        const int SW_HIDE = 0;
-        const int SW_SHOW = 5;
+        public const int SW_HIDE = 0;
+        public const int SW_SHOW = 5;
 
         private delegate bool EventHandler(CtrlType sig);
         static EventHandler _handler;
@@ -129,6 +129,8 @@ namespace Overwatch
 
         public void Watch()
         {
+            Configurator.InitStartup();
+
             Thread afkThread = new Thread(AFKTracker.Track)
             {
                 Name = "afkThread"

@@ -18,7 +18,7 @@ namespace Overwatch
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            new Watcher(@"C:\").Watch();
+            new Watcher(Configurator.GetString("Tracked Path")).Watch();
             // var thread = new Thread(Execute);
             //thread.Start();
             //Console.WriteLine("Main Thread {0} exiting...", 

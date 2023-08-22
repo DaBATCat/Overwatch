@@ -1428,3 +1428,176 @@ Total time AFK: 0h 0m 0s
 Total active time: 0h 0m 58s
 Tracked directory: C:\
 Closed application by SystemEvent? False
+
+----------
+Process from	21.08.2023 18:33:57
+Stopped at:	21.08.2023 18:47:03
+Duration: 0h 13m 786s
+Total events: 9388
+AFK #0 started at 21.08.2023 18:35:07
+Duration: 00:10:16.6119961
+Total time AFK: 0h 10m 16s
+Total active time: 0h 2m 49s
+Tracked directory: C:\
+Closed application by SystemEvent? True
+Microsoft.Win32.SessionEndedEventArgs
+
+----------
+Process from	21.08.2023 18:49:14
+Stopped at:	21.08.2023 18:53:10
+Duration: 0h 3m 235s
+Total events: 5550
+Total time AFK: 0h 0m 0s
+Total active time: 0h 3m 55s
+Tracked directory: C:\
+Closed application by SystemEvent? False
+
+----------
+Process from	21.08.2023 18:53:42
+Stopped at:	21.08.2023 18:54:01
+Duration: 0h 0m 19s
+Total events: 258
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 19s
+Tracked directory: C:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 05:33:04
+Stopped at:	22.08.2023 05:34:19
+Duration: 0h 1m 74s
+Total events: 3284
+Total time AFK: 0h 0m 0s
+Total active time: 0h 1m 14s
+Tracked directory: C:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 07:39:44
+Stopped at:	22.08.2023 07:40:02
+Duration: 0h 0m 18s
+Total events: 905
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 18s
+Tracked directory: C:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 07:41:30
+Stopped at:	22.08.2023 07:41:34
+Duration: 0h 0m 3s
+Total events: 308
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 3s
+Tracked directory: C:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 08:13:08
+Stopped at:	22.08.2023 08:13:19
+Duration: 0h 0m 10s
+Total events: 0
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 10s
+Tracked directory: E:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 08:13:29
+Stopped at:	22.08.2023 08:13:34
+Duration: 0h 0m 5s
+Total events: 0
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 5s
+Tracked directory: E:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 08:14:15
+Stopped at:	22.08.2023 08:14:20
+Duration: 0h 0m 5s
+Total events: 0
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 5s
+Tracked directory: E:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 08:27:26
+Stopped at:	22.08.2023 08:27:29
+Duration: 0h 0m 3s
+Total events: 0
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 3s
+Tracked directory: E:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 08:27:36
+Stopped at:	22.08.2023 08:27:43
+Duration: 0h 0m 6s
+Total events: 0
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 6s
+Tracked directory: E:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 08:34:19
+Stopped at:	22.08.2023 08:34:26
+Duration: 0h 0m 6s
+Total events: 6
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 6s
+Tracked directory: E:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 08:34:49
+Stopped at:	22.08.2023 08:34:53
+Duration: 0h 0m 4s
+Total events: 0
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 4s
+Tracked directory: E:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 08:35:12
+Stopped at:	22.08.2023 08:35:16
+Duration: 0h 0m 4s
+Total events: 0
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 4s
+Tracked directory: E:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 08:35:43
+Stopped at:	22.08.2023 08:35:46
+Duration: 0h 0m 2s
+Total events: 0
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 2s
+Tracked directory: E:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 08:37:39
+Stopped at:	22.08.2023 08:37:45
+Duration: 0h 0m 6s
+Total events: 0
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 6s
+Tracked directory: E:\
+Closed application by SystemEvent? False
+
+----------
+Process from	22.08.2023 08:46:11
+Stopped at:	22.08.2023 08:46:18
+Duration: 0h 0m 6s
+Total events: 0
+Total time AFK: 0h 0m 0s
+Total active time: 0h 0m 6s
+Tracked directory: E:\
+Closed application by SystemEvent? False

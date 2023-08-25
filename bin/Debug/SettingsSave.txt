@@ -3,7 +3,7 @@ CurrentVersion = 0.1.0
 
 ! This is the time from which the actionless time is counted as AFK (in miliseconds), here: 10 Minutes
 ! 10 mins = 600000 millisecs
-AfkTimeBeginning = 600000
+AfkTimeBeginning = 100
 
 ! Should the program start within the boot sequence of the PC?
 RunOnStartup = false

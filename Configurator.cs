@@ -14,12 +14,14 @@ using System.Threading.Tasks;
 using static IronPython.Modules.PythonCsvModule;
 using System.Runtime.InteropServices;
 using static IronPython.Modules.PythonDateTime;
+using System.Data.SqlTypes;
 
 namespace Overwatch
 {
     internal class Configurator
     {
-        static string path = $"C:\\Users\\{Environment.UserName}\\Overwatch\\Settings.txt";
+        static string path = "C:\\Users\\Daniel\\source\\repos\\Overwatch\\Overwatch\\bin\\Debug\\Settings.txt";
+        static string newSettingsPath = "C:\\Users\\Daniel\\source\\repos\\Overwatch\\Overwatch\\bin\\Debug\\SettingsSave.txt";
         static char commentChar = '!';
 
         static string runRegistryKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
@@ -374,6 +376,54 @@ namespace Overwatch
         {
             varName = varName.Replace(" ", "");
             return Convert.ToUInt64(GetVariable(varName));
+        }
+
+        public static void ChangeProperty(string varName, string newValue)
+        {
+            using (StreamReader sr = new StreamReader(path))
+            using (StreamWriter sw = new StreamWriter(newSettingsPath))
+            {
+                string line;
+                while((line = sr.ReadLine()) != null)
+                {
+                    string[] words = line.Split('=');
+
+                    // If there's a variable in the line
+                    bool inheritsVar = false;
+                    foreach(char c in line) { if (c == '=') inheritsVar = true; }
+                    if (line.Length == 0 || line.TrimStart()[0] == commentChar) inheritsVar = false; 
+
+                    string varLine;
+
+                    if (inheritsVar)
+                    {
+                        varLine = line.Substring(0, line.IndexOf('='));
+
+                        string[] varNameWords = varName.Split(' ');
+                        varName = "";
+                        foreach(string varNameWord in varNameWords) { varName += varNameWord; }
+                        string[] varLineWords = varLine.Split(' ');
+                        varLine = "";
+                        foreach(string varLineWord in varLineWords) { varLine += varLineWord; }
+
+                        // Change the value of the property
+                        if (varLine.ToLower() == varName.ToLower() ) 
+                        { 
+                            Console.WriteLine($"Found a match in {line} --> {varLine}");
+                            sw.WriteLine($"{varLine} = {newValue}");
+                        }
+                        else
+                        {
+                            sw.WriteLine(line);
+                        }
+                    }
+                    else
+                    {
+                        sw.WriteLine(line);
+                    }
+                    
+                }
+            }
         }
         
         public static Datatypes GetDatatype(string input)

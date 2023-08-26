@@ -20,8 +20,13 @@ namespace Overwatch
             Console.ForegroundColor = ConsoleColor.White;
             // DBHandler.Execute();
             // Configurator.ChangeProperty("Tracked Path", "C:\\");
+
             // Configurator.ApplyChanges();
-            new Watcher(Configurator.GetString("Tracked Path")).Watch();
+            // Configurator.ChangeProperty("LogInDB", "true");
+            // Configurator.ApplyChanges();
+            // bool logInDB = Configurator.GetBool("Log In DB");
+            // new Watcher(Configurator.GetString("Tracked Path"), logInDB).Watch();
+            PythonExecution();
             // var thread = new Thread(Execute);
             //thread.Start();
             //Console.WriteLine("Main Thread {0} exiting...", 
@@ -75,16 +80,20 @@ namespace Overwatch
 
         static void Run1()
         {
-            new Watcher(@"E:\").Watch();
+            // new Watcher(@"E:\").Watch();
         }
 
-        static void PyhtonExecution()
+        static void PythonExecution()
         {
-            ScriptEngine engine = Python.CreateEngine();
-            ScriptScope scope = engine.CreateScope();
-            engine.ExecuteFile("main.py", scope);
-            int a = engine.Execute("test()", scope);
-            Console.WriteLine(a);
+            var engine = Python.CreateEngine();
+            var scope = engine.CreateScope();
+
+            var paths = engine.GetSearchPaths();
+            paths.Add("C:\\Users\\Daniel\\source\\repos\\Overwatch\\packages\\IronPython.3.4.1\\lib");
+            engine.SetSearchPaths(paths);
+            //engine.ImportModule("sqlite3");
+            engine.ExecuteFile("Expression.py", scope);
+            // scope.ImportModule("sqlite3");
         }
         
     }

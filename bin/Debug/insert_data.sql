@@ -5,44 +5,44 @@ INSERT INTO SessionInfo VALUES
 (NULL, 
 
 -- SessionStartTime : DATETIME
-DATETIME("now") , 
+("26-08-2023 17:35:23") , 
 
 -- SessionEndTime : DATETIME
-DATETIME("now") , 
+("26-08-2023 17:35:28") , 
 
 -- TotalSessionDuration : DATETIME
-DATETIME("now") ,
+("00:00:05-3109044") ,
 
 -- TrackedDirectory : TEXT
-"All" ,
+"C:\ " ,
 
 -- TotalActiveTime : DATETIME
-DATETIME("now") ,
+("00:00:05-3109044") ,
 
 -- TotalAFKTime : DATETIME
-DATETIME("now") ,
+("00:00:00") ,
 
 -- TotalTimesAFK : INT
-2 ,
+0 ,
 
 -- TotalEvents : INT
-2000 ,
+127 ,
 
 -- TotalCreations : INT
-1000 ,
+15 ,
 
 -- TotalDeletions : INT
-20 ,
+15 ,
 
 -- TotalRenamings : INT
-2 ,
+13 ,
 
 -- TotalErrors : INT
-1 ,
+0 ,
 
 -- SessionWasClosedBySystemEvent : BOOL
 False ,
 
 -- DefaultAFKStartLimitInMiliseconds : LONG
-121 );
+2000 );
 

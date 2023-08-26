@@ -1,5 +1,4 @@
 import sqlite3
-import datetime
 
 db_path = "entries.db"
 
@@ -60,7 +59,7 @@ def rename_column():
     connection.close()
 
 
-def insert_data(session_start_time, session_end_time, total_session_duration, tracked_directory: str, total_active_time, total_afk_time, total_times_afk: int, total_events: int, total_creations: int, total_deletions: int, total_renamings: int, total_errors: int, session_was_closed_by_systemevent: bool, default_afk_startlimit_in_miliseconds) -> float:
+def insert_data(session_start_time, session_end_time, total_session_duration, tracked_directory: str, total_active_time, total_afk_time, total_times_afk: int, total_events: int, total_creations: int, total_deletions: int, total_renamings: int, total_errors: int, session_was_closed_by_systemevent: bool, default_afk_startlimit_in_miliseconds):
     connection = sqlite3.connect(database=db_path)
 
     cursor = connection.cursor()

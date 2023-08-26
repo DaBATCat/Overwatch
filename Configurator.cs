@@ -15,6 +15,7 @@ using static IronPython.Modules.PythonCsvModule;
 using System.Runtime.InteropServices;
 using static IronPython.Modules.PythonDateTime;
 using System.Data.SqlTypes;
+using System.Threading;
 
 namespace Overwatch
 {
@@ -435,6 +436,7 @@ namespace Overwatch
                 {
                     sw.WriteLine(line);
                 }
+                sw.Close();
             }
         }
         

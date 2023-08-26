@@ -15,6 +15,19 @@ namespace Overwatch
 {
     internal class Watcher
     {
+        static int totalCreations;
+        static int totalRenamings;
+        static int totalChanges;
+        static int totalDeletions;
+        static int totalErrors;
+
+        private static bool _logInDB;
+        public static bool LogInDB
+        {
+            get { return _logInDB; }
+            set { _logInDB = value; }
+        }
+
         private static string _logPath;
         public static string LogPath
         {
@@ -54,11 +67,18 @@ namespace Overwatch
             CTRL_SHUTDOWN_EVENT = 6
         }
 
-        public Watcher(string path)
+        public Watcher(string path, bool logInDB)
         {
             watcher = new FileSystemWatcher(path);
             _logPath = path;
+            _logInDB = logInDB;
             eventCounter = 0;
+
+            totalCreations = 0;
+            totalRenamings = 0;
+            totalChanges = 0;
+            totalDeletions = 0;
+            totalErrors = 0;
         }
 
 
@@ -85,8 +105,6 @@ namespace Overwatch
             // Calculating the duration of the length of the programs use
             TimeSpan duration = DateTime.Now - startTime;
 
-            // Here for opereations before closing
-            StreamWriter sw = new StreamWriter(Configurator.GetString("Log Path"), true);
 
             // Adds the AFK durations to a string
             string afkDurations = "";
@@ -106,23 +124,45 @@ namespace Overwatch
             // The whole time the user was active on the PC
             TimeSpan totalActiveTimeSpan = duration - totalAfkTimeSpan;
 
-            // Logging the process to a Textfile
-            string msg = $"\n----------\nProcess from\t{startTime}\n" +
-                $"Stopped at:\t{DateTime.Now}\n" +
-                $"Duration: {((int)duration.TotalHours)}h {((int)duration.TotalMinutes)}m " +
-                $"{((int)duration.TotalSeconds)}s\n" +
-                $"Total events: {eventCounter}\n" +
-                $"{afkDurations}" +
-                $"Total time AFK: {(int)totalAfkTimeSpan.TotalHours}h {totalAfkTimeSpan.Minutes}m " +
-                $"{totalAfkTimeSpan.Seconds}s\n" +
-                $"Total active time: {(int)totalActiveTimeSpan.TotalHours}h {totalActiveTimeSpan.Minutes}m " +
-                $"{totalActiveTimeSpan.Seconds}s\n" +
-                $"Tracked directory: {_logPath}\n" +
-                $"Closed application by SystemEvent? {systemEvent}";
+            Dictionary<string, string> keyValues = new Dictionary<string, string>();
+            keyValues["SessionStartTime"] = startTime.ToString().Replace('.', '-');
+            keyValues["SessionEndTime"] = DateTime.Now.ToString().Replace('.', '-');
+            keyValues["TotalSessionDuration"] = duration.ToString().Replace('.', '-');
+            keyValues["TrackedDirectory"] = _logPath;
+            keyValues["TotalActiveTime"] = totalActiveTimeSpan.ToString().Replace(".", "-");
+            keyValues["TotalAfkTime"] = totalAfkTimeSpan.ToString().Replace('.', '-');
+            keyValues["DefaultAfkStartlimitInMiliseconds"] = Configurator.GetString("AfkTimeBeginning");
 
-            sw.WriteLine(msg);
-            if(systemEvent) sw.WriteLine(e.ToString());
-            sw.Close();
+            int afkStartTimes = AFKTracker.durations.Count;
+
+            if (_logInDB)
+            {
+                DBHandler.InsertData(keyValues["SessionStartTime"], keyValues["SessionEndTime"], keyValues["TotalSessionDuration"],
+                    keyValues["TrackedDirectory"], keyValues["TotalActiveTime"], keyValues["TotalAfkTime"], afkStartTimes, Convert.ToInt32(eventCounter),
+                    totalCreations, totalDeletions, totalRenamings, totalErrors, systemEvent, keyValues["DefaultAfkStartlimitInMiliseconds"]);
+            }
+            else
+            {
+                using(StreamWriter sw = new StreamWriter(Configurator.GetString("Log Path"), true))
+                {
+                    // Logging the process to a Textfile
+                    string msg = $"\n----------\nProcess from\t{startTime}\n" +
+                        $"Stopped at:\t{DateTime.Now}\n" +
+                        $"Duration: {((int)duration.TotalHours)}h {((int)duration.TotalMinutes)}m " +
+                        $"{((int)duration.TotalSeconds)}s\n" +
+                        $"Total events: {eventCounter}\n" +
+                        $"{afkDurations}" +
+                        $"Total time AFK: {(int)totalAfkTimeSpan.TotalHours}h {totalAfkTimeSpan.Minutes}m " +
+                        $"{totalAfkTimeSpan.Seconds}s\n" +
+                        $"Total active time: {(int)totalActiveTimeSpan.TotalHours}h {totalActiveTimeSpan.Minutes}m " +
+                        $"{totalActiveTimeSpan.Seconds}s\n" +
+                        $"Tracked directory: {_logPath}\n" +
+                        $"Closed application by SystemEvent? {systemEvent}";
+                    sw.WriteLine(msg);
+                    if (systemEvent) sw.WriteLine(e.ToString());
+
+                }
+            }
         }
 
         public void Watch()
@@ -162,24 +202,32 @@ namespace Overwatch
         private static void OnRenamed(object sender, RenamedEventArgs e) 
         {
             CountLog(LogString($"File renamed: {e.Name}  from  {e.OldName}"), ConsoleColor.Yellow);
+            totalRenamings++;
         }
         // Wenn eine Datei erstellt wird
         private static void OnFileCreated(object sender, FileSystemEventArgs e)
         {
             CountLog(LogString($"File created: {e.FullPath}"), ConsoleColor.Green);
+            totalCreations++;
         } 
         // Wenn eine Datei geändert wird
         private static void OnFileChanged(object sender, FileSystemEventArgs e)
         {
             CountLog(LogString($"File changed: {e.FullPath}"), ConsoleColor.Cyan);
+            totalChanges++;
         }
         // Bei einem Error
-        private static void OnError(object sender, ErrorEventArgs e) => PrintException(e.GetException()); 
+        private static void OnError(object sender, ErrorEventArgs e) 
+        {
+            PrintException(e.GetException());
+            totalErrors++;
+        }
         
         // Bei einer Löschung
         private static void OnDeleted(object sender, FileSystemEventArgs e)
         {
             CountLog(LogString($"File deleted: {e.FullPath}"), ConsoleColor.Gray);
+            totalDeletions++;
         }
         
         // Default log with number entry

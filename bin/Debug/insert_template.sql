@@ -1,6 +1,23 @@
 -- Please note: This SQL File ist just a template for python to replace the values.
 
-INSERT INTO SessionInfo VALUES
+INSERT INTO SessionInfo
+(
+    SessionID,
+    SessionStartTime ,
+    SessionEndTime ,
+    TotalSessionDuration ,
+    TrackedDirectory ,
+    TotalActiveTime ,
+    TotalAFKTime ,
+    TotalTimesAFK ,
+    TotalEvents ,
+    TotalCreations ,
+    TotalDeletions ,
+    TotalRenamings ,
+    TotalErrors ,
+    SessionWasClosedBySystemEvent ,
+    DefaultAFKStartLimitInMiliseconds 
+) VALUES
 -- Auto incremented automatically
 (NULL, 
 
@@ -40,7 +57,7 @@ INSERT INTO SessionInfo VALUES
 -- TotalErrors : INT
 {11} ,
 
--- SessionWasClosedBySystemEvent : BOOL
+-- SessionWasClosedBySystemEvent : BOOL/TINYINT
 {12} ,
 
 -- DefaultAFKStartLimitInMiliseconds : LONG

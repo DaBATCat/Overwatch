@@ -38,12 +38,18 @@ namespace Overwatch
             pythonExpression = $"import db_lib\ndb_lib.insert_data(\"(\\\"{sessionStartTime}\\\")\", \"(\\\"{sessionEndTime}\\\")\", \"(\\\"{totalSessionDuration}\\\")\"," +
                 $"\"\\\"{trackedDirectory} \\\"\", \"(\\\"{totalActiveTime}\\\")\", \"(\\\"{totalAfkTime}\\\")\", {totalTimesAfk}," +
                 $"{totalEvents}, {totalCreations}, {totalDeletions}, {totalRenamings}, " +
-                $"{totalErrors}, {sessionWasClosedBySystemevent}, \"{defaultAfkStartlimitInMiliseconds}\")";
+                $"{totalErrors}, {SQLiteBoolean(sessionWasClosedBySystemevent)}, \"{defaultAfkStartlimitInMiliseconds}\")";
+            
             using(StreamWriter sw = new StreamWriter("Expression.py"))
             {
                 sw.WriteLine(pythonExpression);
             }
-            engine.ExecuteFile("Expression.py");
+
+            var paths = engine.GetSearchPaths();
+            paths.Add("C:\\Users\\Daniel\\source\\repos\\Overwatch\\Overwatch\\lib\\");
+            engine.SetSearchPaths(paths);
+            engine.ImportModule("sqlite3");
+            engine.ExecuteFile("Expression.py", scope);
         }
         public static void InsertTest(int number, string hallo)
         {
@@ -52,6 +58,13 @@ namespace Overwatch
             scope.ImportModule("db_lib");
             scope.ImportModule("sqlite3");
             // pythonExpression = "insert_data(69,"
+        }
+
+        public static int SQLiteBoolean(bool value) => value ? 1 : 0;
+        public static bool SQLiteBoolean(int value)
+        {
+            if (value == 1) return true;
+            else return false;
         }
     }
 }

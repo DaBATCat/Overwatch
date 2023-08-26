@@ -1,48 +1,65 @@
 -- Please note: This SQL File ist just a template for python to replace the values.
 
-INSERT INTO SessionInfo VALUES
+INSERT INTO SessionInfo
+(
+    SessionID,
+    SessionStartTime ,
+    SessionEndTime ,
+    TotalSessionDuration ,
+    TrackedDirectory ,
+    TotalActiveTime ,
+    TotalAFKTime ,
+    TotalTimesAFK ,
+    TotalEvents ,
+    TotalCreations ,
+    TotalDeletions ,
+    TotalRenamings ,
+    TotalErrors ,
+    SessionWasClosedBySystemEvent ,
+    DefaultAFKStartLimitInMiliseconds 
+) VALUES
 -- Auto incremented automatically
 (NULL, 
 
 -- SessionStartTime : DATETIME
-("26-08-2023 17:35:23") , 
+("26-08-2023 19:05:58") , 
 
 -- SessionEndTime : DATETIME
-("26-08-2023 17:35:28") , 
+("26-08-2023 19:07:25") , 
 
 -- TotalSessionDuration : DATETIME
-("00:00:05-3109044") ,
+("00:01:26-6195021") ,
 
 -- TrackedDirectory : TEXT
 "C:\ " ,
 
 -- TotalActiveTime : DATETIME
-("00:00:05-3109044") ,
+("00:00:59-0536501") ,
 
 -- TotalAFKTime : DATETIME
-("00:00:00") ,
+("00:00:27-5658520") ,
 
 -- TotalTimesAFK : INT
-0 ,
+2 ,
 
 -- TotalEvents : INT
-127 ,
+499 ,
 
 -- TotalCreations : INT
-15 ,
+29 ,
 
 -- TotalDeletions : INT
-15 ,
+33 ,
 
 -- TotalRenamings : INT
-13 ,
+32 ,
 
 -- TotalErrors : INT
 0 ,
 
--- SessionWasClosedBySystemEvent : BOOL
-False ,
+-- SessionWasClosedBySystemEvent : BOOL/TINYINT
+0 ,
 
 -- DefaultAFKStartLimitInMiliseconds : LONG
-2000 );
+10000 );
 

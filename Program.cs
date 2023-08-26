@@ -18,8 +18,10 @@ namespace Overwatch
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.White;
+            // DBHandler.Execute();
+            // Configurator.ChangeProperty("Tracked Path", "C:\\");
+            // Configurator.ApplyChanges();
             new Watcher(Configurator.GetString("Tracked Path")).Watch();
-            // Configurator.InitStartup();
             // var thread = new Thread(Execute);
             //thread.Start();
             //Console.WriteLine("Main Thread {0} exiting...", 
@@ -76,6 +78,14 @@ namespace Overwatch
             new Watcher(@"E:\").Watch();
         }
 
+        static void PyhtonExecution()
+        {
+            ScriptEngine engine = Python.CreateEngine();
+            ScriptScope scope = engine.CreateScope();
+            engine.ExecuteFile("main.py", scope);
+            int a = engine.Execute("test()", scope);
+            Console.WriteLine(a);
+        }
         
     }
 }

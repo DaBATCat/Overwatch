@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Overwatch
 {
@@ -40,6 +42,7 @@ namespace Overwatch
             bool isAfk = false;
             while (true)
             {
+                Thread.Sleep(100);
                 GetLastInputInfo(ref lastInputInfo);
                 uint lastInputTime = lastInputInfo.dwTime;
 

@@ -133,7 +133,7 @@ namespace Overwatch
             {
                 Name = "afkThread"
             };
-
+            
             afkThread.Start();
             Console.Title = $"Logging in {_logPath}...";
 

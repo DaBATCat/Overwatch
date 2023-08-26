@@ -20,8 +20,8 @@ namespace Overwatch
 {
     internal class Configurator
     {
-        static string path = "C:\\Users\\Daniel\\source\\repos\\Overwatch\\Overwatch\\bin\\Debug\\Settings.txt";
-        static string newSettingsPath = "C:\\Users\\Daniel\\source\\repos\\Overwatch\\Overwatch\\bin\\Debug\\SettingsSave.txt";
+        static string path = "C:\\Users\\Daniel\\source\\repos\\Overwatch\\Overwatch\\bin\\Debug\\Settings.cfg";
+        static string newSettingsPath = "C:\\Users\\Daniel\\source\\repos\\Overwatch\\Overwatch\\bin\\Debug\\TempSettingsSave.cfg";
         static char commentChar = '!';
 
         static string runRegistryKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
@@ -425,6 +425,18 @@ namespace Overwatch
                 }
             }
         }
+        public static void ApplyChanges()
+        {
+            using (StreamReader sr = new StreamReader(newSettingsPath))
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                string line;
+                while((line = sr.ReadLine()) != null)
+                {
+                    sw.WriteLine(line);
+                }
+            }
+        }
         
         public static Datatypes GetDatatype(string input)
         {
@@ -504,7 +516,7 @@ namespace Overwatch
 
         public static void InitStartup()
         {
-            
+            ApplyChanges();
             if (GetBool("RunOnStartup"))
             {
                 AddRegistryKey();

@@ -18,8 +18,8 @@ namespace Overwatch
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            // new Watcher(Configurator.GetString("Tracked Path")).Watch();
-            Configurator.ChangeProperty("afk time beginning ", "100");
+            new Watcher(Configurator.GetString("Tracked Path")).Watch();
+            // Configurator.InitStartup();
             // var thread = new Thread(Execute);
             //thread.Start();
             //Console.WriteLine("Main Thread {0} exiting...", 

@@ -8,3 +8,15 @@ Total time AFK: 0h 0m 0s
 Total active time: 0h 0m 1s
 Tracked directory: E:\
 Closed application by SystemEvent? False
+
+----------
+Process from	26.08.2023 13:36:54
+Stopped at:	26.08.2023 13:37:49
+Duration: 0h 0m 54s
+Total events: 61
+AFK #0 started at 26.08.2023 13:37:17
+Duration: 00:00:04.4560016
+Total time AFK: 0h 0m 4s
+Total active time: 0h 0m 50s
+Tracked directory: E:\
+Closed application by SystemEvent? False

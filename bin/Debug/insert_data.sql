@@ -22,37 +22,37 @@ INSERT INTO SessionInfo
 (NULL, 
 
 -- SessionStartTime : DATETIME
-("26-08-2023 19:05:58") , 
+("27-08-2023 12:38:20") , 
 
 -- SessionEndTime : DATETIME
-("26-08-2023 19:07:25") , 
+("27-08-2023 12:38:36") , 
 
 -- TotalSessionDuration : DATETIME
-("00:01:26-6195021") ,
+("00:00:16-1704777") ,
 
 -- TrackedDirectory : TEXT
 "C:\ " ,
 
 -- TotalActiveTime : DATETIME
-("00:00:59-0536501") ,
+("00:00:16-1704777") ,
 
 -- TotalAFKTime : DATETIME
-("00:00:27-5658520") ,
+("00:00:00") ,
 
 -- TotalTimesAFK : INT
-2 ,
+0 ,
 
 -- TotalEvents : INT
-499 ,
+212 ,
 
 -- TotalCreations : INT
-29 ,
+22 ,
 
 -- TotalDeletions : INT
-33 ,
+22 ,
 
 -- TotalRenamings : INT
-32 ,
+19 ,
 
 -- TotalErrors : INT
 0 ,

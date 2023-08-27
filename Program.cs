@@ -10,6 +10,7 @@ using Microsoft.Scripting.Hosting;
 using IronPython.Hosting;
 using Microsoft.Win32;
 using System.Reflection;
+using System.IO;
 
 namespace Overwatch
 {
@@ -18,7 +19,15 @@ namespace Overwatch
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.White;
+            // DBHandler.Execute();
+            // Configurator.ChangeProperty("Tracked Path", "C:\\");
+
+            // Configurator.ApplyChanges();
+            // Configurator.ChangeProperty("afktimebeginning", "10000");
+            // Configurator.ApplyChanges();
+            // bool logInDB = Configurator.GetBool("Log In DB");
             new Watcher(Configurator.GetString("Tracked Path")).Watch();
+            // PythonExecution();
             // var thread = new Thread(Execute);
             //thread.Start();
             //Console.WriteLine("Main Thread {0} exiting...", 
@@ -39,11 +48,6 @@ namespace Overwatch
             // Console.WriteLine("Settings:");
             // Console.WriteLine(Configurator.GetSettings());
             Console.ReadLine(); 
-        }
-
-        public void NormalExecution()
-        {
-            var thread1 = new Thread(Run1);
         }
         private static void Execute()
         {
@@ -68,11 +72,6 @@ namespace Overwatch
                 Thread.Sleep(200);
                 Console.WriteLine(i);
             }
-        }
-
-        static void Run1()
-        {
-            new Watcher(@"E:\").Watch();
         }
 
         

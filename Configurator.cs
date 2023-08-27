@@ -14,12 +14,15 @@ using System.Threading.Tasks;
 using static IronPython.Modules.PythonCsvModule;
 using System.Runtime.InteropServices;
 using static IronPython.Modules.PythonDateTime;
+using System.Data.SqlTypes;
+using System.Threading;
 
 namespace Overwatch
 {
     internal class Configurator
     {
-        static string path = $"C:\\Users\\{Environment.UserName}\\Overwatch\\Settings.txt";
+        static string path = PathBuilder("Settings.cfg");
+        static string newSettingsPath = PathBuilder("TempSettingsSave.cfg");
         static char commentChar = '!';
 
         static string runRegistryKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
@@ -97,7 +100,7 @@ namespace Overwatch
             int amountOfSettings = 0;
             
             // This sets the amount of Settings for each not commented line which inherit '='
-            using (StreamReader reader = new StreamReader(path)) 
+            using (StreamReader reader = new StreamReader(newSettingsPath)) 
             { 
                 while((line = reader.ReadLine()) != null)
                 {
@@ -112,7 +115,7 @@ namespace Overwatch
             string[] options = new string[amountOfSettings];
             char limiter = '=';
             int settingsIndex = 0;
-            using(StreamReader reader = new StreamReader(path))
+            using(StreamReader reader = new StreamReader(newSettingsPath))
             {
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -136,7 +139,7 @@ namespace Overwatch
             string[] values = new string[options.Length];
             settingsIndex = 0;
 
-            using (StreamReader reader = new StreamReader(path))
+            using (StreamReader reader = new StreamReader(newSettingsPath))
             {
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -172,7 +175,7 @@ namespace Overwatch
 
             string line;
 
-            using (StreamReader reader = new StreamReader(path))
+            using (StreamReader reader = new StreamReader(newSettingsPath))
             {
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -187,7 +190,7 @@ namespace Overwatch
             string[] options = new string[amountOfSettings];
             char limiter = '=';
             int settingsIndex = 0;
-            using (StreamReader reader = new StreamReader(path))
+            using (StreamReader reader = new StreamReader(newSettingsPath))
             {
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -239,7 +242,7 @@ namespace Overwatch
         {
             string line = "";
             int amountOfSettings = 0;
-            using (StreamReader reader = new StreamReader(path))
+            using (StreamReader reader = new StreamReader(newSettingsPath))
             {
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -259,7 +262,7 @@ namespace Overwatch
             string[] options = new string[amountOfSettings];
             char limiter = '=';
             int settingsIndex = 0;
-            using (StreamReader reader = new StreamReader(path))
+            using (StreamReader reader = new StreamReader(newSettingsPath))
             {
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -289,7 +292,7 @@ namespace Overwatch
             int settingsIndex = 0;
             char limiter = '=';
 
-            using (StreamReader reader = new StreamReader(path))
+            using (StreamReader reader = new StreamReader(newSettingsPath))
             {
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -375,6 +378,67 @@ namespace Overwatch
             varName = varName.Replace(" ", "");
             return Convert.ToUInt64(GetVariable(varName));
         }
+
+        public static void ChangeProperty(string varName, string newValue)
+        {
+            using (StreamReader sr = new StreamReader(path))
+            using (StreamWriter sw = new StreamWriter(newSettingsPath))
+            {
+                string line;
+                while((line = sr.ReadLine()) != null)
+                {
+                    string[] words = line.Split('=');
+
+                    // If there's a variable in the line
+                    bool inheritsVar = false;
+                    foreach(char c in line) { if (c == '=') inheritsVar = true; }
+                    if (line.Length == 0 || line.TrimStart()[0] == commentChar) inheritsVar = false; 
+
+                    string varLine;
+
+                    if (inheritsVar)
+                    {
+                        varLine = line.Substring(0, line.IndexOf('='));
+
+                        string[] varNameWords = varName.Split(' ');
+                        varName = "";
+                        foreach(string varNameWord in varNameWords) { varName += varNameWord; }
+                        string[] varLineWords = varLine.Split(' ');
+                        varLine = "";
+                        foreach(string varLineWord in varLineWords) { varLine += varLineWord; }
+
+                        // Change the value of the property
+                        if (varLine.ToLower() == varName.ToLower() ) 
+                        { 
+                            Console.WriteLine(Watcher.LogString($"Changed {varLine} to {newValue}"));
+                            sw.WriteLine($"{varLine} = {newValue}");
+                        }
+                        else
+                        {
+                            sw.WriteLine(line);
+                        }
+                    }
+                    else
+                    {
+                        sw.WriteLine(line);
+                    }
+                    
+                }
+            }
+        }
+        public static void ApplyChanges()
+        {
+            using (StreamReader sr = new StreamReader(newSettingsPath))
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                string line;
+                while((line = sr.ReadLine()) != null)
+                {
+                    sw.WriteLine(line);
+                }
+                sw.Close();
+            }
+        }
         
         public static Datatypes GetDatatype(string input)
         {
@@ -452,9 +516,21 @@ namespace Overwatch
             return result;
         }
 
+        public static void CheckPaths()
+        {
+            if(GetVariable("LogPath") != PathBuilder("Logs.cfg"))
+            {
+                ChangeProperty("LogPath", PathBuilder("Logs.cfg"));
+            }
+            if(GetVariable("SettingsPath") != PathBuilder("Settings.cfg"))
+            {
+                ChangeProperty("SettingsPath", PathBuilder("Settings.cfg"));
+            }
+        }
         public static void InitStartup()
         {
-            
+            CheckPaths();
+            ApplyChanges();
             if (GetBool("RunOnStartup"))
             {
                 AddRegistryKey();
@@ -539,6 +615,8 @@ namespace Overwatch
                 Watcher.ShowWindow(winHandle, Watcher.SW_HIDE);
             }
         }
+
+        public static string PathBuilder(string fileName) => Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + $"\\{fileName}";
 
     }
 }

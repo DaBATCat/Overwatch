@@ -67,11 +67,11 @@ namespace Overwatch
             CTRL_SHUTDOWN_EVENT = 6
         }
 
-        public Watcher(string path, bool logInDB)
+        public Watcher(string path)
         {
             watcher = new FileSystemWatcher(path);
             _logPath = path;
-            _logInDB = logInDB;
+            _logInDB = Configurator.GetBool("Log in DB");
             eventCounter = 0;
 
             totalCreations = 0;
@@ -241,7 +241,7 @@ namespace Overwatch
         }
 
         // Returns the default DateTime and Log-Template String
-        private static string LogString(string msg) => $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}] {msg}";
+        public static string LogString(string msg) => $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}] {msg}";
 
         // For printing the error message
         private static void PrintException(Exception e)

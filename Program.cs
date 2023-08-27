@@ -10,7 +10,7 @@ using Microsoft.Scripting.Hosting;
 using IronPython.Hosting;
 using Microsoft.Win32;
 using System.Reflection;
-
+using System.IO;
 
 namespace Overwatch
 {
@@ -23,10 +23,10 @@ namespace Overwatch
             // Configurator.ChangeProperty("Tracked Path", "C:\\");
 
             // Configurator.ApplyChanges();
-            Configurator.ChangeProperty("afktimebeginning", "10000");
+            // Configurator.ChangeProperty("afktimebeginning", "10000");
             // Configurator.ApplyChanges();
             // bool logInDB = Configurator.GetBool("Log In DB");
-            new Watcher(Configurator.GetString("Tracked Path"), true).Watch();
+            new Watcher(Configurator.GetString("Tracked Path")).Watch();
             // PythonExecution();
             // var thread = new Thread(Execute);
             //thread.Start();
@@ -48,11 +48,6 @@ namespace Overwatch
             // Console.WriteLine("Settings:");
             // Console.WriteLine(Configurator.GetSettings());
             Console.ReadLine(); 
-        }
-
-        public void NormalExecution()
-        {
-            var thread1 = new Thread(Run1);
         }
         private static void Execute()
         {
@@ -79,28 +74,6 @@ namespace Overwatch
             }
         }
 
-        static void Run1()
-        {
-            // new Watcher(@"E:\").Watch();
-        }
-
-        static void PythonExecution()
-        {
-            var engine = Python.CreateEngine();
-            var scope = engine.CreateScope();
-
-            Console.WriteLine("SearchPaths:");
-            foreach (string value in engine.GetSearchPaths())
-            {
-                Console.WriteLine(value);
-            }
-            var paths = engine.GetSearchPaths();
-            paths.Add("C:\\Users\\Daniel\\source\\repos\\Overwatch\\Overwatch\\lib\\");
-            engine.SetSearchPaths(paths);
-            engine.ImportModule("sqlite3");
-            engine.ExecuteFile("Expression.py", scope);
-            // scope.ImportModule("sqlite3");
-        }
         
     }
 }

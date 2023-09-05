@@ -527,6 +527,10 @@ namespace Overwatch
                 ChangeProperty("SettingsPath", PathBuilder("Settings.cfg"));
             }
         }
+
+        /// <summary>
+        /// Startup operations here
+        /// </summary>
         public static void InitStartup()
         {
             CheckPaths();

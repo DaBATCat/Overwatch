@@ -34,3 +34,10 @@ C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\IronPython.Wpf.xml
 C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\Microsoft.Dynamic.xml
 C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\Microsoft.Scripting.xml
 C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\Microsoft.Scripting.Metadata.xml
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\System.ValueTuple.dll
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.dll
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.pdb
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.xml
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\CommunityToolkit.WinUI.Notifications.dll
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\CommunityToolkit.WinUI.Notifications.pdb
+C:\Users\Daniel\source\repos\Overwatch\Overwatch\bin\Debug\CommunityToolkit.WinUI.Notifications.xml

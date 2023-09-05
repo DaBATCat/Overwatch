@@ -26,7 +26,9 @@ namespace Overwatch
             // Configurator.ChangeProperty("afktimebeginning", "10000");
             // Configurator.ApplyChanges();
             // bool logInDB = Configurator.GetBool("Log In DB");
-            new Watcher(Configurator.GetString("Tracked Path")).Watch();
+
+            // new Watcher(Configurator.GetString("Tracked Path")).Watch();
+            Toaster.ToastNotification();
             // PythonExecution();
             // var thread = new Thread(Execute);
             //thread.Start();

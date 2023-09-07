@@ -211,6 +211,7 @@ namespace Overwatch
             totalCreations++;
         } 
         // Wenn eine Datei geändert wird
+        // -> DB!
         private static void OnFileChanged(object sender, FileSystemEventArgs e)
         {
             CountLog(LogString($"File changed: {e.FullPath}"), ConsoleColor.Cyan);
@@ -221,6 +222,10 @@ namespace Overwatch
         {
             PrintException(e.GetException());
             totalErrors++;
+            if (Configurator.GetBool("Show Popups"))
+            {
+                Toaster.DefaultToastNotification($"Error #{totalErrors}", e.GetException().Message);
+            }
         }
         
         // Bei einer Löschung

@@ -27,8 +27,7 @@ namespace Overwatch
             // Configurator.ApplyChanges();
             // bool logInDB = Configurator.GetBool("Log In DB");
 
-            // new Watcher(Configurator.GetString("Tracked Path")).Watch();
-            Toaster.ToastNotification();
+            new Watcher(Configurator.GetString("Tracked Path")).Watch();
             // PythonExecution();
             // var thread = new Thread(Execute);
             //thread.Start();

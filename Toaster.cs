@@ -29,5 +29,12 @@ namespace Overwatch
                 Console.WriteLine("That's an error");
             }
         }
+        public static void DefaultToastNotification(string header, string msg)
+        {
+            new ToastContentBuilder()
+                .AddText(header)
+                .AddText(msg)
+                .Show();
+        }
     }
 }

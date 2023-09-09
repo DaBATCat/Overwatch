@@ -1,0 +1,2 @@
+ALTER TABLE SessionInfo
+ADD COLUMN TotalFileChanges INTEGER;

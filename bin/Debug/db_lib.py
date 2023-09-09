@@ -60,7 +60,7 @@ def rename_column():
     connection.close()
 
 
-def insert_data(session_start_time, session_end_time, total_session_duration, tracked_directory, total_active_time, total_afk_time, total_times_afk, total_events, total_creations, total_deletions, total_renamings, total_errors, session_was_closed_by_systemevent, default_afk_startlimit_in_miliseconds):
+def insert_data(session_start_time, session_end_time, total_session_duration, tracked_directory, total_active_time, total_afk_time, total_times_afk, total_events, total_creations, total_deletions, total_renamings, total_errors, session_was_closed_by_systemevent, default_afk_startlimit_in_miliseconds, total_file_changes):
     connection = sqlite3.connect(database=db_path)
 
     cursor = connection.cursor()
@@ -70,7 +70,7 @@ def insert_data(session_start_time, session_end_time, total_session_duration, tr
         script = file.read()
     
     # Insert the values for the sql
-    new_sql_query = script.replace("{0}", str(session_start_time)).replace("{1}", str(session_end_time)).replace("{2}", str(total_session_duration)).replace("{3}", str(tracked_directory)).replace("{4}", str(total_active_time)).replace("{5}", str(total_afk_time)).replace("{6}", str(total_times_afk)).replace("{7}", str(total_events)).replace("{8}", str(total_creations)).replace("{9}", str(total_deletions)).replace("{10}", str(total_renamings)).replace("{11}", str(total_errors)).replace("{12}", str(session_was_closed_by_systemevent)).replace("{13}", str(default_afk_startlimit_in_miliseconds))
+    new_sql_query = script.replace("{0}", str(session_start_time)).replace("{1}", str(session_end_time)).replace("{2}", str(total_session_duration)).replace("{3}", str(tracked_directory)).replace("{4}", str(total_active_time)).replace("{5}", str(total_afk_time)).replace("{6}", str(total_times_afk)).replace("{7}", str(total_events)).replace("{8}", str(total_creations)).replace("{9}", str(total_deletions)).replace("{10}", str(total_renamings)).replace("{11}", str(total_errors)).replace("{12}", str(session_was_closed_by_systemevent)).replace("{13}", str(default_afk_startlimit_in_miliseconds)).replace("{14}", str(total_file_changes))
 
     # Write the new file
     with open("insert_data.sql", "w") as file:

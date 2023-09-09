@@ -132,6 +132,7 @@ namespace Overwatch
             keyValues["TotalActiveTime"] = totalActiveTimeSpan.ToString().Replace(".", "-");
             keyValues["TotalAfkTime"] = totalAfkTimeSpan.ToString().Replace('.', '-');
             keyValues["DefaultAfkStartlimitInMiliseconds"] = Configurator.GetString("AfkTimeBeginning");
+            
 
             int afkStartTimes = AFKTracker.durations.Count;
 
@@ -139,7 +140,7 @@ namespace Overwatch
             {
                 DBHandler.InsertData(keyValues["SessionStartTime"], keyValues["SessionEndTime"], keyValues["TotalSessionDuration"],
                     keyValues["TrackedDirectory"], keyValues["TotalActiveTime"], keyValues["TotalAfkTime"], afkStartTimes, Convert.ToInt32(eventCounter),
-                    totalCreations, totalDeletions, totalRenamings, totalErrors, systemEvent, keyValues["DefaultAfkStartlimitInMiliseconds"]);
+                    totalCreations, totalDeletions, totalRenamings, totalErrors, systemEvent, keyValues["DefaultAfkStartlimitInMiliseconds"], totalChanges);
             }
             else
             {

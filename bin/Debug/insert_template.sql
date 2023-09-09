@@ -16,7 +16,8 @@ INSERT INTO SessionInfo
     TotalRenamings ,
     TotalErrors ,
     SessionWasClosedBySystemEvent ,
-    DefaultAFKStartLimitInMiliseconds 
+    DefaultAFKStartLimitInMiliseconds ,
+    TotalFileChanges
 ) VALUES
 -- Auto incremented automatically
 (NULL, 
@@ -61,5 +62,8 @@ INSERT INTO SessionInfo
 {12} ,
 
 -- DefaultAFKStartLimitInMiliseconds : LONG
-{13} );
+{13} ,
+
+-- TotalFileChanges : INT
+{14} );
 

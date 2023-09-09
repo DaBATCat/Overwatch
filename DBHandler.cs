@@ -20,7 +20,7 @@ namespace Overwatch
         public static void InsertData(string sessionStartTime, string sessionEndTime, string totalSessionDuration,
             string trackedDirectory, string totalActiveTime, string totalAfkTime, int totalTimesAfk,
             int totalEvents, int totalCreations, int totalDeletions, int totalRenamings,
-            int totalErrors, bool sessionWasClosedBySystemevent, string defaultAfkStartlimitInMiliseconds)
+            int totalErrors, bool sessionWasClosedBySystemevent, string defaultAfkStartlimitInMiliseconds, int totalFileChanges)
         {
             ScriptEngine engine = Python.CreateEngine();
             ScriptScope scope = engine.CreateScope();
@@ -31,7 +31,7 @@ namespace Overwatch
             pythonExpression = $"import db_lib\ndb_lib.insert_data(\"(\\\"{sessionStartTime}\\\")\", \"(\\\"{sessionEndTime}\\\")\", \"(\\\"{totalSessionDuration}\\\")\"," +
                 $"\"\\\"{trackedDirectory} \\\"\", \"(\\\"{totalActiveTime}\\\")\", \"(\\\"{totalAfkTime}\\\")\", {totalTimesAfk}," +
                 $"{totalEvents}, {totalCreations}, {totalDeletions}, {totalRenamings}, " +
-                $"{totalErrors}, {SQLiteBoolean(sessionWasClosedBySystemevent)}, \"{defaultAfkStartlimitInMiliseconds}\")";
+                $"{totalErrors}, {SQLiteBoolean(sessionWasClosedBySystemevent)}, \"{defaultAfkStartlimitInMiliseconds}\", {totalFileChanges})";
             
             using(StreamWriter sw = new StreamWriter(Configurator.PathBuilder("Expression.py")))
             {

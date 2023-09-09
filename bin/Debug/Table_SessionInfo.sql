@@ -13,4 +13,5 @@ Create table SessionInfo(
     TotalRenamings integer,
     TotalErrors integer,
     SessionWasClosedBySystemEvent bool,
-    DefaultAFKStartLimitInMiliseconds long);
+    DefaultAFKStartLimitInMiliseconds long,
+    TotalFileChanges integer);

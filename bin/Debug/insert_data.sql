@@ -16,25 +16,26 @@ INSERT INTO SessionInfo
     TotalRenamings ,
     TotalErrors ,
     SessionWasClosedBySystemEvent ,
-    DefaultAFKStartLimitInMiliseconds 
+    DefaultAFKStartLimitInMiliseconds ,
+    TotalFileChanges
 ) VALUES
 -- Auto incremented automatically
 (NULL, 
 
 -- SessionStartTime : DATETIME
-("07-09-2023 16:13:44") , 
+("09-09-2023 12:29:35") , 
 
 -- SessionEndTime : DATETIME
-("07-09-2023 16:14:46") , 
+("09-09-2023 12:29:48") , 
 
 -- TotalSessionDuration : DATETIME
-("00:01:02-8540722") ,
+("00:00:13-6644081") ,
 
 -- TrackedDirectory : TEXT
 "C:\ " ,
 
 -- TotalActiveTime : DATETIME
-("00:01:02-8540722") ,
+("00:00:13-6644081") ,
 
 -- TotalAFKTime : DATETIME
 ("00:00:00") ,
@@ -43,16 +44,16 @@ INSERT INTO SessionInfo
 0 ,
 
 -- TotalEvents : INT
-1410 ,
+328 ,
 
 -- TotalCreations : INT
-147 ,
+41 ,
 
 -- TotalDeletions : INT
-143 ,
+38 ,
 
 -- TotalRenamings : INT
-54 ,
+35 ,
 
 -- TotalErrors : INT
 0 ,
@@ -61,5 +62,8 @@ INSERT INTO SessionInfo
 0 ,
 
 -- DefaultAFKStartLimitInMiliseconds : LONG
-600000 );
+600000 ,
+
+-- TotalFileChanges : INT
+214 );
 
